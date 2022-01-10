@@ -1,0 +1,837 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Autofac/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Autofac.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Win32.SystemEvents/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "MonoGame.Extended/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netstandard2.0/CppNet.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.xml": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/SharpDX.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/SharpDX.xml": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/libmojoshader_64.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/mgfxc.deps.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/mgfxc.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/mgfxc.exe": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/mgfxc.pdb": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.dev.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "MonoGame.Extended.Animations/3.7.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Extended": "3.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Animations.dll": {}
+        }
+      },
+      "MonoGame.Extended.Collisions/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.Collisions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Collisions.dll": {}
+        }
+      },
+      "MonoGame.Extended.Content.Pipeline/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "5.2.0",
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Tiled": "3.8.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "contentFiles": {
+          "contentFiles/any/netcoreapp3.1/CppNet.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.xml": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/SharpDX.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/SharpDX.xml": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/libmojoshader_64.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/mgfxc.deps.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/mgfxc.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/mgfxc.exe": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/mgfxc.pdb": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.dev.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "MonoGame.Extended.Graphics/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.Graphics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Graphics.dll": {}
+        }
+      },
+      "MonoGame.Extended.Input/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.Input.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Input.dll": {}
+        }
+      },
+      "MonoGame.Extended.Tiled/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Graphics": "3.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.Tiled.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Tiled.dll": {}
+        }
+      },
+      "MonoGame.Extended.Tweening/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.Tweening.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Tweening.dll": {}
+        }
+      },
+      "MonoGame.Forms.DX/2.4.0": {
+        "type": "package",
+        "build": {
+          "Build/MonoGame.Forms.DX.targets": {}
+        }
+      },
+      "MonoGame.Framework.Portable/3.7.1.189": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+win8+wpa81/MonoGame.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win8+wpa81/MonoGame.Framework.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "SliceAndDice/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SliceAndDice.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SliceAndDice.dll": {}
+        }
+      },
+      "System.Drawing.Common/5.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "5.0.0"
+        },
+        "compile": {
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "TinyCsvParser/2.6.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/TinyCsvParser.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/TinyCsvParser.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Autofac/5.2.0": {
+      "sha512": "V8dBH0dsv75uDzl7Sw+HkhKDPUw2eXnlMjcSVMH+tLo2s67MpTKGyDj1pDcpR+IF2u4YRs0s3/x7R88YJzIWvg==",
+      "type": "package",
+      "path": "autofac/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.5.2.0.nupkg.sha512",
+        "autofac.nuspec",
+        "icon.png",
+        "lib/net461/Autofac.dll",
+        "lib/net461/Autofac.pdb",
+        "lib/net461/Autofac.xml",
+        "lib/netstandard2.0/Autofac.dll",
+        "lib/netstandard2.0/Autofac.pdb",
+        "lib/netstandard2.0/Autofac.xml",
+        "lib/netstandard2.1/Autofac.dll",
+        "lib/netstandard2.1/Autofac.pdb",
+        "lib/netstandard2.1/Autofac.xml"
+      ]
+    },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "type": "package",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
+        "runtime.json",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Win32.SystemEvents/5.0.0": {
+      "sha512": "Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Win32.SystemEvents.dll",
+        "lib/net461/Microsoft.Win32.SystemEvents.xml",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "ref/net461/Microsoft.Win32.SystemEvents.dll",
+        "ref/net461/Microsoft.Win32.SystemEvents.xml",
+        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "MonoGame.Extended/3.8.0": {
+      "sha512": "FDPoUOFtslGNHCWSqjKD0C67RYN6Stb6NWnn+rkCmtkPBZlE6LvwuGyQBkHUkAMANO3LzO/Wsz9etMhwZLInqg==",
+      "type": "package",
+      "path": "monogame.extended/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/CppNet.dll",
+        "content/SharpDX.D3DCompiler.dll",
+        "content/SharpDX.D3DCompiler.xml",
+        "content/SharpDX.dll",
+        "content/SharpDX.xml",
+        "content/libmojoshader_64.dll",
+        "content/mgfxc.deps.json",
+        "content/mgfxc.dll",
+        "content/mgfxc.exe",
+        "content/mgfxc.pdb",
+        "content/mgfxc.runtimeconfig.dev.json",
+        "content/mgfxc.runtimeconfig.json",
+        "contentFiles/any/netstandard2.0/CppNet.dll",
+        "contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.dll",
+        "contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.xml",
+        "contentFiles/any/netstandard2.0/SharpDX.dll",
+        "contentFiles/any/netstandard2.0/SharpDX.xml",
+        "contentFiles/any/netstandard2.0/libmojoshader_64.dll",
+        "contentFiles/any/netstandard2.0/mgfxc.deps.json",
+        "contentFiles/any/netstandard2.0/mgfxc.dll",
+        "contentFiles/any/netstandard2.0/mgfxc.exe",
+        "contentFiles/any/netstandard2.0/mgfxc.pdb",
+        "contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.dev.json",
+        "contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.json",
+        "lib/netstandard2.0/MonoGame.Extended.dll",
+        "monogame.extended.3.8.0.nupkg.sha512",
+        "monogame.extended.nuspec"
+      ]
+    },
+    "MonoGame.Extended.Animations/3.7.0": {
+      "sha512": "UuZwWK4etHTkY/ZctazyBNL2orVTUdw3GtPPs09onU+izBLxO3/PqooqfRXjWEV/iHT+bocjLUucw48ZwACNMg==",
+      "type": "package",
+      "path": "monogame.extended.animations/3.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.Animations.dll",
+        "monogame.extended.animations.3.7.0.nupkg.sha512",
+        "monogame.extended.animations.nuspec"
+      ]
+    },
+    "MonoGame.Extended.Collisions/3.8.0": {
+      "sha512": "Ov4xQQm/73/d/JvcwL5FXmuCLcGVEjk+vB2EvhmCtyEIh9ggMXK3sYfyyIKAxG+w01VthGUSwpd3F+AOMLeoSg==",
+      "type": "package",
+      "path": "monogame.extended.collisions/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.Collisions.dll",
+        "monogame.extended.collisions.3.8.0.nupkg.sha512",
+        "monogame.extended.collisions.nuspec"
+      ]
+    },
+    "MonoGame.Extended.Content.Pipeline/3.8.0": {
+      "sha512": "Kt21Ux4Hdkgm7FMiGhQ7C0+rMS0wMQM63TxWsNBa8DjEDwX1pKIUORxvQBgh89J4TiMSmmK+U6VfxV2kh5PPpg==",
+      "type": "package",
+      "path": "monogame.extended.content.pipeline/3.8.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/CppNet.dll",
+        "content/SharpDX.D3DCompiler.dll",
+        "content/SharpDX.D3DCompiler.xml",
+        "content/SharpDX.dll",
+        "content/SharpDX.xml",
+        "content/libmojoshader_64.dll",
+        "content/mgfxc.deps.json",
+        "content/mgfxc.dll",
+        "content/mgfxc.exe",
+        "content/mgfxc.pdb",
+        "content/mgfxc.runtimeconfig.dev.json",
+        "content/mgfxc.runtimeconfig.json",
+        "contentFiles/any/netcoreapp3.1/CppNet.dll",
+        "contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.dll",
+        "contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.xml",
+        "contentFiles/any/netcoreapp3.1/SharpDX.dll",
+        "contentFiles/any/netcoreapp3.1/SharpDX.xml",
+        "contentFiles/any/netcoreapp3.1/libmojoshader_64.dll",
+        "contentFiles/any/netcoreapp3.1/mgfxc.deps.json",
+        "contentFiles/any/netcoreapp3.1/mgfxc.dll",
+        "contentFiles/any/netcoreapp3.1/mgfxc.exe",
+        "contentFiles/any/netcoreapp3.1/mgfxc.pdb",
+        "contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.dev.json",
+        "contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.json",
+        "monogame.extended.content.pipeline.3.8.0.nupkg.sha512",
+        "monogame.extended.content.pipeline.nuspec",
+        "tools/MonoGame.Extended.Content.Pipeline.dll",
+        "tools/MonoGame.Extended.Graphics.dll",
+        "tools/MonoGame.Extended.Tiled.dll",
+        "tools/MonoGame.Extended.dll",
+        "tools/Newtonsoft.Json.dll"
+      ]
+    },
+    "MonoGame.Extended.Graphics/3.8.0": {
+      "sha512": "vSl1+4dFNKnOqHUB1SRQ7IdWXNagJJI+KKCQmaSyfon99/kumsChQ9iZXltEaUO3ArB8QGnblii/PXq/bsLUHQ==",
+      "type": "package",
+      "path": "monogame.extended.graphics/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.Graphics.dll",
+        "monogame.extended.graphics.3.8.0.nupkg.sha512",
+        "monogame.extended.graphics.nuspec"
+      ]
+    },
+    "MonoGame.Extended.Input/3.8.0": {
+      "sha512": "90RtzI6N+RCGHolI/yTwGT47vqSyr+IEe+yKxzm4/euc8rDVnbAwz4lRifkAEdHx29X3apD0Ui5ve0C/7yO7wQ==",
+      "type": "package",
+      "path": "monogame.extended.input/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.Input.dll",
+        "monogame.extended.input.3.8.0.nupkg.sha512",
+        "monogame.extended.input.nuspec"
+      ]
+    },
+    "MonoGame.Extended.Tiled/3.8.0": {
+      "sha512": "lXE+Ysvep5FCozHlj862kqIG6TWCmjNgjF7xWbJ4ZDkqG+Khi9VrG5G8Pdj80TMRpDhZOz3PICinVZElZU639g==",
+      "type": "package",
+      "path": "monogame.extended.tiled/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.Tiled.dll",
+        "monogame.extended.tiled.3.8.0.nupkg.sha512",
+        "monogame.extended.tiled.nuspec"
+      ]
+    },
+    "MonoGame.Extended.Tweening/3.8.0": {
+      "sha512": "RLKhmcPUVcdh5aXcMMUpww84i0Ed/upoTAljmU2vKWakbxKFljLic5hgKA6fNfFCVVn0Y1lqgVomEZNuaCkeWw==",
+      "type": "package",
+      "path": "monogame.extended.tweening/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.Tweening.dll",
+        "monogame.extended.tweening.3.8.0.nupkg.sha512",
+        "monogame.extended.tweening.nuspec"
+      ]
+    },
+    "MonoGame.Forms.DX/2.4.0": {
+      "sha512": "G/mElaPgNHKUYCDPNivfwA6U6C4euYvAW01rcIkXY/hHIsnwT5WI1uVgbgLfgBLEv5c2IWtjlwU86xwgM2vL6g==",
+      "type": "package",
+      "path": "monogame.forms.dx/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Build/MonoGame.Forms.DX.targets",
+        "lib/net451/MonoGame.Forms.DX.dll",
+        "lib/net451/MonoGame.Forms.DX.xml",
+        "lib/net451/MonoGame.Framework.dll",
+        "lib/net451/MonoGame.Framework.xml",
+        "lib/net451/SharpDX.DXGI.dll",
+        "lib/net451/SharpDX.DXGI.xml",
+        "lib/net451/SharpDX.Direct2D1.dll",
+        "lib/net451/SharpDX.Direct2D1.xml",
+        "lib/net451/SharpDX.Direct3D11.dll",
+        "lib/net451/SharpDX.Direct3D11.xml",
+        "lib/net451/SharpDX.Direct3D9.dll",
+        "lib/net451/SharpDX.Direct3D9.xml",
+        "lib/net451/SharpDX.MediaFoundation.dll",
+        "lib/net451/SharpDX.MediaFoundation.xml",
+        "lib/net451/SharpDX.RawInput.dll",
+        "lib/net451/SharpDX.RawInput.xml",
+        "lib/net451/SharpDX.XAudio2.dll",
+        "lib/net451/SharpDX.XAudio2.xml",
+        "lib/net451/SharpDX.XInput.dll",
+        "lib/net451/SharpDX.XInput.xml",
+        "lib/net451/SharpDX.dll",
+        "lib/net451/SharpDX.xml",
+        "monogame.forms.dx.2.4.0.nupkg.sha512",
+        "monogame.forms.dx.nuspec"
+      ]
+    },
+    "MonoGame.Framework.Portable/3.7.1.189": {
+      "sha512": "Q5ARWZtCtJa8aD5zeeMmEkAwnguEq6aZqeIh9RdAi9RhaYJxoGc0lYka4sZaq2hGQAP7KFsPe4U9uhK/6c37vg==",
+      "type": "package",
+      "path": "monogame.framework.portable/3.7.1.189",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/portable-net45+win8+wpa81/MonoGame.Framework.dll",
+        "lib/portable-net45+win8+wpa81/MonoGame.Framework.xml",
+        "monogame.framework.portable.3.7.1.189.nupkg.sha512",
+        "monogame.framework.portable.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "SliceAndDice/1.0.0": {
+      "sha512": "Hlhk0+8Cma7wBqUGmydfDxo0ssC9UxmpDnw1EIQ38sBlwQQm58vxoV0Kt7wUiHPQ3x9+CH+3Memy/yfRLaWh8g==",
+      "type": "package",
+      "path": "sliceanddice/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SliceAndDice.dll",
+        "sliceanddice.1.0.0.nupkg.sha512",
+        "sliceanddice.nuspec"
+      ]
+    },
+    "System.Drawing.Common/5.0.2": {
+      "sha512": "rvr/M1WPf24ljpvvrVd74+NdjRUJu1bBkspkZcnzSZnmAUQWSvanlQ0k/hVHk+cHufZbZfu7vOh/vYc0q5Uu/A==",
+      "type": "package",
+      "path": "system.drawing.common/5.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.Drawing.Common.dll",
+        "ref/netcoreapp3.0/System.Drawing.Common.dll",
+        "ref/netcoreapp3.0/System.Drawing.Common.xml",
+        "ref/netstandard2.0/System.Drawing.Common.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "system.drawing.common.5.0.2.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "TinyCsvParser/2.6.1": {
+      "sha512": "FfPoO7L6UDAZ6YRZ23C9wz8KoGllGl73AhvCuZCFnt66NFD6WQohLFwI7yavusXh3OTQcBbf6OdAJ2+7TP9n9Q==",
+      "type": "package",
+      "path": "tinycsvparser/2.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/TinyCsvParser.dll",
+        "lib/netstandard1.3/TinyCsvParser.dll",
+        "lib/netstandard2.0/TinyCsvParser.dll",
+        "lib/netstandard2.1/TinyCsvParser.dll",
+        "tinycsvparser.2.6.1.nupkg.sha512",
+        "tinycsvparser.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "MonoGame.Extended >= 3.8.0",
+      "MonoGame.Extended.Animations >= 3.7.0",
+      "MonoGame.Extended.Collisions >= 3.8.0",
+      "MonoGame.Extended.Content.Pipeline >= 3.8.0",
+      "MonoGame.Extended.Graphics >= 3.8.0",
+      "MonoGame.Extended.Input >= 3.8.0",
+      "MonoGame.Extended.Tiled >= 3.8.0",
+      "MonoGame.Extended.Tweening >= 3.8.0",
+      "MonoGame.Forms.DX >= 2.4.0",
+      "MonoGame.Framework.Portable >= 3.7.1.189",
+      "SliceAndDice >= 1.0.0",
+      "System.Drawing.Common >= 5.0.2",
+      "TinyCsvParser >= 2.6.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\graym\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj",
+      "projectName": "Nez",
+      "projectPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj",
+      "packagesPath": "C:\\Users\\graym\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\obj\\Nez\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\graym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "MonoGame.Extended": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Extended.Animations": {
+            "target": "Package",
+            "version": "[3.7.0, )"
+          },
+          "MonoGame.Extended.Collisions": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Extended.Content.Pipeline": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Extended.Graphics": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Extended.Input": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Extended.Tiled": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Extended.Tweening": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          },
+          "MonoGame.Forms.DX": {
+            "target": "Package",
+            "version": "[2.4.0, )"
+          },
+          "MonoGame.Framework.Portable": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.7.1.189, )"
+          },
+          "SliceAndDice": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[5.0.2, )"
+          },
+          "TinyCsvParser": {
+            "target": "Package",
+            "version": "[2.6.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MonoGame.Framework.Portable 3.7.1.189' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MonoGame.Framework.Portable",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}

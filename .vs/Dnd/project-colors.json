@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b09ec33c-3145-4f62-89d6-ea0260c8b788": {
+      "ProjectGuid": "b09ec33c-3145-4f62-89d6-ea0260c8b788",
+      "DisplayName": "DndApp",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "cde9d7ee-b649-42db-b909-790fac4bac6c": {
+      "ProjectGuid": "cde9d7ee-b649-42db-b909-790fac4bac6c",
+      "DisplayName": "Nez",
+      "ColorIndex": 1
+    },
+    "344281eb-1a02-4dc4-a8cc-85f02c031a79": {
+      "ProjectGuid": "344281eb-1a02-4dc4-a8cc-85f02c031a79",
+      "DisplayName": "DndApp",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
