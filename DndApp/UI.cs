@@ -214,6 +214,7 @@ public static class UI
 			grid2.Widgets.Add(label3); grid2.Widgets.Add(checkBox1);
 			grid2.Widgets.Add(textButton8); grid2.Widgets.Add(checkBox2);
 			grid2.Widgets.Add(label4); grid2.Widgets.Add(textButton9); grid2.Widgets.Add(checkBox3);
+			
 			var window2 = new Window();
 			window2.IsModal = false;
 			window2.Title = "Properties";
