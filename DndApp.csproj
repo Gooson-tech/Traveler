@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <PublishReadyToRun>false</PublishReadyToRun>
+        <TieredCompilation>false</TieredCompilation>
+        <RootNamespace>DndApp</RootNamespace>
+        <LangVersion>latestmajor</LangVersion>
+        <Nullable>disable</Nullable>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationIcon>Icon.ico</ApplicationIcon>
+        <StartupObject>DndApp.Program</StartupObject>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="Icon.ico" />
+        <None Remove="Icon.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Icon.ico" />
+        <EmbeddedResource Include="Icon.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+        <MonoGameContentReference Include="Content\Content.mgcb" />
+    </ItemGroup>
+    <ItemGroup>
+        <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="ChaiFoxes.FMODAudio.Desktop" Version="2.0.0" />
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="MonoGame.Extended" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Extended.Animations" Version="3.7.0" />
+        <PackageReference Include="MonoGame.Extended.Collisions" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Extended.Graphics" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Extended.Input" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Extended.Tiled" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Extended.Tweening" Version="3.8.0" />
+        <PackageReference Include="MonoGame.Forms.DX" Version="2.4.0" />
+        <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+        <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+        <PackageReference Include="Myra" Version="1.3.1" />
+        <PackageReference Include="SliceAndDice" Version="1.0.0" />
+        <PackageReference Include="TinyCsvParser" Version="2.6.1" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Nez.Portable\Nez.csproj" />
+    </ItemGroup>
+</Project>

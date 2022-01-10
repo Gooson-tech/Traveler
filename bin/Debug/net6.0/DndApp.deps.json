@@ -1,0 +1,545 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DndApp/1.0.0": {
+        "dependencies": {
+          "ChaiFoxes.FMODAudio.Desktop": "2.0.0",
+          "Microsoft.NETFramework.ReferenceAssemblies": "1.0.2",
+          "MonoGame.Content.Builder.Task": "3.8.0.1641",
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Animations": "3.7.0",
+          "MonoGame.Extended.Collisions": "3.8.0",
+          "MonoGame.Extended.Content.Pipeline": "3.8.0",
+          "MonoGame.Extended.Graphics": "3.8.0",
+          "MonoGame.Extended.Input": "3.8.0",
+          "MonoGame.Extended.Tiled": "3.8.0",
+          "MonoGame.Extended.Tweening": "3.8.0",
+          "MonoGame.Forms.DX": "2.4.0",
+          "MonoGame.Framework.DesktopGL": "3.8.0.1641",
+          "Myra": "1.3.1",
+          "Nez": "1.0.0",
+          "SliceAndDice": "1.0.0",
+          "TinyCsvParser": "2.6.1"
+        },
+        "runtime": {
+          "DndApp.dll": {}
+        }
+      },
+      "AssetManagementBase/0.5.3": {
+        "runtime": {
+          "lib/netstandard2.0/AssetManagementBase.dll": {
+            "assemblyVersion": "0.5.3.0",
+            "fileVersion": "0.5.3.0"
+          }
+        }
+      },
+      "Autofac/5.2.0": {
+        "runtime": {
+          "lib/netstandard2.1/Autofac.dll": {
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
+          }
+        }
+      },
+      "ChaiFoxes.FMODAudio.Desktop/2.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/ChaiFoxes.FMODAudio.Desktop.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Cyotek.Drawing.BitmapFont/2.0.1": {
+        "runtime": {
+          "lib/netcoreapp3.1/Cyotek.Drawing.BitmapFont.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
+      },
+      "FontStashSharp.MonoGame/1.0.0": {
+        "dependencies": {
+          "Cyotek.Drawing.BitmapFont": "2.0.1",
+          "StbImageSharp": "2.22.6",
+          "StbTrueTypeSharp": "1.24.8"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "info.lundin.math.dll/1.2.6": {
+        "runtime": {
+          "lib/netstandard2.0/info.lundin.math.dll": {
+            "assemblyVersion": "1.2.6.0",
+            "fileVersion": "1.2.6.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/5.0.0": {},
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {},
+      "Microsoft.Win32.SystemEvents/5.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "MonoGame.Content.Builder.Task/3.8.0.1641": {},
+      "MonoGame.Extended/3.8.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Animations/3.7.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Animations.dll": {
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Collisions/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Collisions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Content.Pipeline/3.8.0": {
+        "dependencies": {
+          "Autofac": "5.2.0",
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Tiled": "3.8.0",
+          "Newtonsoft.Json": "12.0.3"
+        }
+      },
+      "MonoGame.Extended.Graphics/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Graphics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Input/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Input.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Tiled/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Graphics": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Tiled.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Tweening/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Tweening.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Forms.DX/2.4.0": {},
+      "MonoGame.Framework.DesktopGL/3.8.0.1641": {
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {
+            "assemblyVersion": "3.8.0.1641",
+            "fileVersion": "3.8.0.1641"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSDL2-2.0.so.0": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libopenal.so.1": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libSDL2-2.0.0.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libopenal.1.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/SDL2.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2.0.12.0"
+          },
+          "runtimes/win-x64/native/soft_oal.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/SDL2.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "2.0.12.0"
+          },
+          "runtimes/win-x86/native/soft_oal.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Myra/1.3.1": {
+        "dependencies": {
+          "AssetManagementBase": "0.5.3",
+          "FontStashSharp.MonoGame": "1.0.0",
+          "info.lundin.math.dll": "1.2.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Myra.dll": {
+            "assemblyVersion": "1.3.1.0",
+            "fileVersion": "1.3.1.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "SliceAndDice/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/SliceAndDice.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "StbImageSharp/2.22.6": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.22.6.0",
+            "fileVersion": "2.22.6.0"
+          }
+        }
+      },
+      "StbTrueTypeSharp/1.24.8": {
+        "runtime": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.24.8.0",
+            "fileVersion": "1.24.8.0"
+          }
+        }
+      },
+      "System.Drawing.Common/5.0.2": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "5.0.0.2",
+            "fileVersion": "5.0.421.11614"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.2",
+            "fileVersion": "5.0.421.11614"
+          },
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.2",
+            "fileVersion": "5.0.421.11614"
+          }
+        }
+      },
+      "TinyCsvParser/2.6.1": {
+        "runtime": {
+          "lib/netstandard2.1/TinyCsvParser.dll": {
+            "assemblyVersion": "2.6.1.0",
+            "fileVersion": "2.6.1.0"
+          }
+        }
+      },
+      "Nez/1.0.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Animations": "3.7.0",
+          "MonoGame.Extended.Collisions": "3.8.0",
+          "MonoGame.Extended.Content.Pipeline": "3.8.0",
+          "MonoGame.Extended.Graphics": "3.8.0",
+          "MonoGame.Extended.Input": "3.8.0",
+          "MonoGame.Extended.Tiled": "3.8.0",
+          "MonoGame.Extended.Tweening": "3.8.0",
+          "MonoGame.Forms.DX": "2.4.0",
+          "SliceAndDice": "1.0.0",
+          "System.Drawing.Common": "5.0.2",
+          "TinyCsvParser": "2.6.1"
+        },
+        "runtime": {
+          "Nez.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DndApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AssetManagementBase/0.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hoe8tKcLCZ9xeG8k+Ortywp13bp2G5uwlIIniBVVJdYMTi1ue2m2qUpKd68rgHH4kdkgH1GG5qVQf3vGrjCJtw==",
+      "path": "assetmanagementbase/0.5.3",
+      "hashPath": "assetmanagementbase.0.5.3.nupkg.sha512"
+    },
+    "Autofac/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V8dBH0dsv75uDzl7Sw+HkhKDPUw2eXnlMjcSVMH+tLo2s67MpTKGyDj1pDcpR+IF2u4YRs0s3/x7R88YJzIWvg==",
+      "path": "autofac/5.2.0",
+      "hashPath": "autofac.5.2.0.nupkg.sha512"
+    },
+    "ChaiFoxes.FMODAudio.Desktop/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FoUAEQqplc3+rlGrA7LqBvegYUTnmZs8Zw5AbgfKSezeyyFbBnjboWiKaO1XH832cWxoaT9Le7BV7m3BE5U6RQ==",
+      "path": "chaifoxes.fmodaudio.desktop/2.0.0",
+      "hashPath": "chaifoxes.fmodaudio.desktop.2.0.0.nupkg.sha512"
+    },
+    "Cyotek.Drawing.BitmapFont/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8C8Vdvf8p6RIOBNFE99ZNPWFxwV/ZT1wk11cajuL3+6/e5DBGPHe+ZjxLu2efTWQ1YvfLh4KpP2epUZ9z/WcFQ==",
+      "path": "cyotek.drawing.bitmapfont/2.0.1",
+      "hashPath": "cyotek.drawing.bitmapfont.2.0.1.nupkg.sha512"
+    },
+    "FontStashSharp.MonoGame/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S3vPQ34cX4tiQD5jLXDt2PbneHw2i8g1bGHJ5b+oUse1Ron60OKCEzdp49a+hQTlORa1ANSC0XyJBSuQCFZ66Q==",
+      "path": "fontstashsharp.monogame/1.0.0",
+      "hashPath": "fontstashsharp.monogame.1.0.0.nupkg.sha512"
+    },
+    "info.lundin.math.dll/1.2.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rCSUXUISKOmFkpEPd9wZJP9bHsyozEwvid3zO4gByG1QQX9IMAUZ8R9OZmpKp20JWrBMGBMTgoXAuLCSoK6VAQ==",
+      "path": "info.lundin.math.dll/1.2.6",
+      "hashPath": "info.lundin.math.dll.1.2.6.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5/cSEVld+px/CuRrbohO/djfg6++eR6zGpy88MgqloXvkj//WXWpFZyu/OpkXPN0u5m+dN/EVwLNYFUxD4h2+A==",
+      "path": "microsoft.netframework.referenceassemblies/1.0.2",
+      "hashPath": "microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
+      "path": "microsoft.win32.systemevents/5.0.0",
+      "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
+    },
+    "MonoGame.Content.Builder.Task/3.8.0.1641": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oHA60q9MhkqGnSiJlXosdynD400sQ/j1Ef+0XkJYIQT4Io9RQ6Zk8i0vjpnIbQ0PgsoaQN3IRYjNzkhqq3uUGA==",
+      "path": "monogame.content.builder.task/3.8.0.1641",
+      "hashPath": "monogame.content.builder.task.3.8.0.1641.nupkg.sha512"
+    },
+    "MonoGame.Extended/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FDPoUOFtslGNHCWSqjKD0C67RYN6Stb6NWnn+rkCmtkPBZlE6LvwuGyQBkHUkAMANO3LzO/Wsz9etMhwZLInqg==",
+      "path": "monogame.extended/3.8.0",
+      "hashPath": "monogame.extended.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Animations/3.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UuZwWK4etHTkY/ZctazyBNL2orVTUdw3GtPPs09onU+izBLxO3/PqooqfRXjWEV/iHT+bocjLUucw48ZwACNMg==",
+      "path": "monogame.extended.animations/3.7.0",
+      "hashPath": "monogame.extended.animations.3.7.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Collisions/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ov4xQQm/73/d/JvcwL5FXmuCLcGVEjk+vB2EvhmCtyEIh9ggMXK3sYfyyIKAxG+w01VthGUSwpd3F+AOMLeoSg==",
+      "path": "monogame.extended.collisions/3.8.0",
+      "hashPath": "monogame.extended.collisions.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Content.Pipeline/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Kt21Ux4Hdkgm7FMiGhQ7C0+rMS0wMQM63TxWsNBa8DjEDwX1pKIUORxvQBgh89J4TiMSmmK+U6VfxV2kh5PPpg==",
+      "path": "monogame.extended.content.pipeline/3.8.0",
+      "hashPath": "monogame.extended.content.pipeline.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Graphics/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vSl1+4dFNKnOqHUB1SRQ7IdWXNagJJI+KKCQmaSyfon99/kumsChQ9iZXltEaUO3ArB8QGnblii/PXq/bsLUHQ==",
+      "path": "monogame.extended.graphics/3.8.0",
+      "hashPath": "monogame.extended.graphics.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Input/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-90RtzI6N+RCGHolI/yTwGT47vqSyr+IEe+yKxzm4/euc8rDVnbAwz4lRifkAEdHx29X3apD0Ui5ve0C/7yO7wQ==",
+      "path": "monogame.extended.input/3.8.0",
+      "hashPath": "monogame.extended.input.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Tiled/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lXE+Ysvep5FCozHlj862kqIG6TWCmjNgjF7xWbJ4ZDkqG+Khi9VrG5G8Pdj80TMRpDhZOz3PICinVZElZU639g==",
+      "path": "monogame.extended.tiled/3.8.0",
+      "hashPath": "monogame.extended.tiled.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Tweening/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RLKhmcPUVcdh5aXcMMUpww84i0Ed/upoTAljmU2vKWakbxKFljLic5hgKA6fNfFCVVn0Y1lqgVomEZNuaCkeWw==",
+      "path": "monogame.extended.tweening/3.8.0",
+      "hashPath": "monogame.extended.tweening.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Forms.DX/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G/mElaPgNHKUYCDPNivfwA6U6C4euYvAW01rcIkXY/hHIsnwT5WI1uVgbgLfgBLEv5c2IWtjlwU86xwgM2vL6g==",
+      "path": "monogame.forms.dx/2.4.0",
+      "hashPath": "monogame.forms.dx.2.4.0.nupkg.sha512"
+    },
+    "MonoGame.Framework.DesktopGL/3.8.0.1641": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rJQlrlHQbnOECYV6EcQ8GlGRQ2lzPTroXQcyyOZ0ki+BQRSJEN2zVBm9skqLiXya348aGAfTSSGTaSKjAy9NaA==",
+      "path": "monogame.framework.desktopgl/3.8.0.1641",
+      "hashPath": "monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    },
+    "Myra/1.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vbbg7+YJXbGFAP80Yvo9CDH4pltcJ+SyXtUh9XAlJcRgfMcKbWCiFmycUvYQ8E4YUmBjnhP60S/98bZgFnyN0g==",
+      "path": "myra/1.3.1",
+      "hashPath": "myra.1.3.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "SliceAndDice/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hlhk0+8Cma7wBqUGmydfDxo0ssC9UxmpDnw1EIQ38sBlwQQm58vxoV0Kt7wUiHPQ3x9+CH+3Memy/yfRLaWh8g==",
+      "path": "sliceanddice/1.0.0",
+      "hashPath": "sliceanddice.1.0.0.nupkg.sha512"
+    },
+    "StbImageSharp/2.22.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QePcBRY8uGhFuD5CD9jIxqdS0YLbbnT4llbyZ6e8odUOi/J7YEwZcNSXk8scPsPDVgZgvLjKFruduWAMk0gScw==",
+      "path": "stbimagesharp/2.22.6",
+      "hashPath": "stbimagesharp.2.22.6.nupkg.sha512"
+    },
+    "StbTrueTypeSharp/1.24.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hNROyHXlzHNZPagUKw2YfHowB8+K4Mf/pSFc5RQjpUCtVNUSag/hdFaxMzk6qXTqlMjWELf0hThmh676AMZvtA==",
+      "path": "stbtruetypesharp/1.24.8",
+      "hashPath": "stbtruetypesharp.1.24.8.nupkg.sha512"
+    },
+    "System.Drawing.Common/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rvr/M1WPf24ljpvvrVd74+NdjRUJu1bBkspkZcnzSZnmAUQWSvanlQ0k/hVHk+cHufZbZfu7vOh/vYc0q5Uu/A==",
+      "path": "system.drawing.common/5.0.2",
+      "hashPath": "system.drawing.common.5.0.2.nupkg.sha512"
+    },
+    "TinyCsvParser/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FfPoO7L6UDAZ6YRZ23C9wz8KoGllGl73AhvCuZCFnt66NFD6WQohLFwI7yavusXh3OTQcBbf6OdAJ2+7TP9n9Q==",
+      "path": "tinycsvparser/2.6.1",
+      "hashPath": "tinycsvparser.2.6.1.nupkg.sha512"
+    },
+    "Nez/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
