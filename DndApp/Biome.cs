@@ -18,15 +18,19 @@ public class Biome
     public string[] Enemies;
     public string[] Buildings;
     public Climate ClimateType;
+    public static List<Biome> BiomeList = new List<Biome>();
+
+    public static void CreateNewBiome(string paintName, Climate climateType) =>
+        BiomeList.AddIfNotPresent(new Biome(paintName, climateType));
+
+    public static string WeatherData
 
     public Biome(string name, Climate climateType)
     {
         Name = name;
         ClimateType = climateType;
-
-
-        /*if (BiomeList.AddIfNotPresent(this))
-        {*/
+        if (BiomeList.AddIfNotPresent(this))
+        {
             var EventFile = name + "_Events.txt";
             var AnimalsFile = name + "_Animals.txt";
             var BuildingFile = name + "_Buildings.txt";
@@ -40,7 +44,7 @@ public class Biome
             Animals = File.ReadAllLines(EventFile);
             Enemies = File.ReadAllLines(EventFile);
             Buildings = File.ReadAllLines(EventFile);
-        //}
+        }
     }
 
 }

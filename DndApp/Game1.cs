@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Security.Principal;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
 using Nez.Sprites;
-using Nez.Systems;
 
 namespace DndApp;
 
@@ -14,14 +10,10 @@ namespace DndApp;
 
 public class Game1 : Core
 {
-    private static List<Biome> BiomeList = new List<Biome>();
-
     private static Entity _eraser;
 
     // private static void Window_ClientSizeChanged(object sender, System.EventArgs e) => UI.BuildUI();
-    private static Vector2 _lstClkLocation = new(0,0);
-
-
+    private static Vector2 _lstClkLocation = new(0, 0);
     public static Myra.Graphics2D.UI.Desktop desktop;
 
     protected override void Initialize()
@@ -38,9 +30,9 @@ public class Game1 : Core
         Biome Desert = new(name: "Desert", Climate.Desert);
         Biome Tundra= new("Tundra", Climate.Tundra);
         Biome Grassland = new("Grassland", Climate.Grassland);
-        BiomeList.Add(Desert);
-        BiomeList.Add(Tundra);
-        BiomeList.Add(Grassland);
+        Biome.BiomeList.Add(Desert);
+        Biome.BiomeList.Add(Tundra);
+        Biome.BiomeList.Add(Grassland);
         _eraser = Scene.CreateEntity("Eraser");
         _eraser.AddComponent(new Mouse());
 
@@ -67,19 +59,18 @@ public class Game1 : Core
 
     protected override void Update(GameTime gametime)
    {
-       if (!UI.ONTOP)
+       base.Update(gametime);
+
+       if (!UI.Ontop)
        {
            //camera
-
            SceneCamera.CameraZoom(Input.MouseWheel);
 
-
-           if (UI.PaintName != null && UI.PaintName != UI.LastUsedPaintName)
+           if (UI.PaintName != UI.LastUsedPaintName && UI.PaintName != null)
            {
-               CreateNewBiome(UI.PaintName);
+               Biome.CreateNewBiome(UI.PaintName, UI.ClimateType);
                UI.LastUsedPaintName = UI.PaintName;
            }
-
            if (UI.PaintMode)
            {
                if (Input.LeftMouseButtonDown) DoPainting();
@@ -90,16 +81,7 @@ public class Game1 : Core
                }
                else _eraser.Enabled = false;
            }
-
        }
-
-
-       base.Update(gametime);
-
-
-
-
-
    }
 
     public static void DoPainting()
@@ -108,7 +90,7 @@ public class Game1 : Core
        clkLocation.Round();
        if (Paint.AllowedRange(_lstClkLocation, clkLocation)) //optimization
        {
-           var splotch = new Paint(UI.PaintName, UI.useColor);
+           var splotch = new Paint(UI.PaintName, UI.UseColor);
            splotch.SetScale(new Vector2(UI.SplotchSize, UI.SplotchSize));
 
            _lstClkLocation = clkLocation;
@@ -125,12 +107,6 @@ public class Game1 : Core
        _eraser.SetPosition(clkLocation);
    }
 
-    public static void CreateNewBiome(string PaintName)
-   {
-
-       var biome = new Biome(PaintName, Climate.Desert);
-       if (BiomeList.AddIfNotPresent(new Biome(UI.PaintName, UI.ClimateType)));
-   }
 
     protected override void Draw(GameTime gameTime)
     {
