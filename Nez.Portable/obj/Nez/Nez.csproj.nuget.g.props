@@ -4,17 +4,16 @@
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\graym\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/Grayson/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/Grayson/.nuget/packages/</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.0.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\graym\.nuget\packages\" />
-    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+    <SourceRoot Include="/home/Grayson/.nuget/packages/" />
   </ItemGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\CppNet.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\CppNet.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/CppNet.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/CppNet.dll')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -22,7 +21,7 @@
       <Private>False</Private>
       <Link>CppNet.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.D3DCompiler.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.D3DCompiler.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.dll')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -30,7 +29,7 @@
       <Private>False</Private>
       <Link>SharpDX.D3DCompiler.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.D3DCompiler.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.D3DCompiler.xml')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.D3DCompiler.xml')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -38,7 +37,7 @@
       <Private>False</Private>
       <Link>SharpDX.D3DCompiler.xml</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.dll')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -46,7 +45,7 @@
       <Private>False</Private>
       <Link>SharpDX.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\SharpDX.xml')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/SharpDX.xml')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -54,7 +53,7 @@
       <Private>False</Private>
       <Link>SharpDX.xml</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\libmojoshader_64.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\libmojoshader_64.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/libmojoshader_64.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/libmojoshader_64.dll')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -62,7 +61,7 @@
       <Private>False</Private>
       <Link>libmojoshader_64.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.deps.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.deps.json')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.deps.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.deps.json')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -70,7 +69,7 @@
       <Private>False</Private>
       <Link>mgfxc.deps.json</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.dll')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -78,7 +77,7 @@
       <Private>False</Private>
       <Link>mgfxc.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.exe" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.exe')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.exe" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.exe')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -86,7 +85,7 @@
       <Private>False</Private>
       <Link>mgfxc.exe</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.pdb" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.pdb')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.pdb" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.pdb')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -94,7 +93,7 @@
       <Private>False</Private>
       <Link>mgfxc.pdb</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.runtimeconfig.dev.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.runtimeconfig.dev.json')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.dev.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.dev.json')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -102,7 +101,7 @@
       <Private>False</Private>
       <Link>mgfxc.runtimeconfig.dev.json</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.runtimeconfig.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.runtimeconfig.json')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended/3.8.0/contentFiles/any/netstandard2.0/mgfxc.runtimeconfig.json')">
       <NuGetPackageId>MonoGame.Extended</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -112,7 +111,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\CppNet.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\CppNet.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/CppNet.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/CppNet.dll')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -120,7 +119,7 @@
       <Private>False</Private>
       <Link>CppNet.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.D3DCompiler.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.D3DCompiler.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.dll')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -128,7 +127,7 @@
       <Private>False</Private>
       <Link>SharpDX.D3DCompiler.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.D3DCompiler.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.D3DCompiler.xml')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.D3DCompiler.xml')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -136,7 +135,7 @@
       <Private>False</Private>
       <Link>SharpDX.D3DCompiler.xml</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.dll')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -144,7 +143,7 @@
       <Private>False</Private>
       <Link>SharpDX.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\SharpDX.xml')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.xml" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/SharpDX.xml')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -152,7 +151,7 @@
       <Private>False</Private>
       <Link>SharpDX.xml</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\libmojoshader_64.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\libmojoshader_64.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/libmojoshader_64.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/libmojoshader_64.dll')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -160,7 +159,7 @@
       <Private>False</Private>
       <Link>libmojoshader_64.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.deps.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.deps.json')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.deps.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.deps.json')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -168,7 +167,7 @@
       <Private>False</Private>
       <Link>mgfxc.deps.json</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.dll')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.dll')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -176,7 +175,7 @@
       <Private>False</Private>
       <Link>mgfxc.dll</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.exe" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.exe')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.exe" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.exe')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -184,7 +183,7 @@
       <Private>False</Private>
       <Link>mgfxc.exe</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.pdb" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.pdb')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.pdb" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.pdb')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -192,7 +191,7 @@
       <Private>False</Private>
       <Link>mgfxc.pdb</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.runtimeconfig.dev.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.runtimeconfig.dev.json')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.dev.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.dev.json')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -200,7 +199,7 @@
       <Private>False</Private>
       <Link>mgfxc.runtimeconfig.dev.json</Link>
     </Content>
-    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.runtimeconfig.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline\3.8.0\contentFiles\any\netcoreapp3.1\mgfxc.runtimeconfig.json')">
+    <Content Include="$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.json" Condition="Exists('$(NuGetPackageRoot)monogame.extended.content.pipeline/3.8.0/contentFiles/any/netcoreapp3.1/mgfxc.runtimeconfig.json')">
       <NuGetPackageId>MonoGame.Extended.Content.Pipeline</NuGetPackageId>
       <NuGetPackageVersion>3.8.0</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
@@ -210,6 +209,6 @@
     </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMonoGame_Extended_Content_Pipeline Condition=" '$(PkgMonoGame_Extended_Content_Pipeline)' == '' ">C:\Users\graym\.nuget\packages\monogame.extended.content.pipeline\3.8.0</PkgMonoGame_Extended_Content_Pipeline>
+    <PkgMonoGame_Extended_Content_Pipeline Condition=" '$(PkgMonoGame_Extended_Content_Pipeline)' == '' ">/home/Grayson/.nuget/packages/monogame.extended.content.pipeline/3.8.0</PkgMonoGame_Extended_Content_Pipeline>
   </PropertyGroup>
 </Project>

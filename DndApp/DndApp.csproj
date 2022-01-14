@@ -20,6 +20,10 @@
     <ItemGroup>
         <EmbeddedResource Include="Icon.ico" />
         <EmbeddedResource Include="Icon.bmp" />
+        <EmbeddedResource Update="StringTest.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>StringTest.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
         <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -50,5 +54,12 @@
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Nez.Portable\Nez.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="StringTest.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>StringTest.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

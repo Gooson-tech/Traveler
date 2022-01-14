@@ -1,6 +1,6 @@
 ﻿namespace DndApp;
 
-public enum Climate
+public enum Climates
 {
     Desert,
     Tundra,

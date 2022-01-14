@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Xna.Framework;
 using Myra;
 using Myra.Graphics2D.Brushes;
 using Myra.Graphics2D.UI;
@@ -12,7 +13,7 @@ public static class UI
     public static string PaintName { get; set; } = "Desert";
     public static string LastUsedPaintName { get; set; }
     public static int SplotchSize { get; set; } = 2;
-    public static Climate ClimateType { get; set; } = Climate.Desert;
+    public static Climates ClimateType { get; set; } = Climates.Desert;
     public static Color UseColor { get; set; } = Color.Yellow;
     public static Grid RootGrid = new Grid { RowSpacing = 8, ColumnSpacing = 8 };
     public static bool Ontop;
@@ -27,6 +28,13 @@ public static class UI
 	    ChoiceFive,
 	    ChoiceSix,
     }
+
+    public static string[] Months = new string[]
+    {
+	    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
+	    "December"
+    };
+
     static UI()
     {
         MyraEnvironment.Game = Game1.Instance;
@@ -35,10 +43,10 @@ public static class UI
     }
     public static void BuildUI()
 		{
-			void TopOfUi( Widget widget) {
+			/*void //TopOfUi( Widget widget) {
 				widget.MouseEntered += (s, a) => UI.Ontop = true;
 				widget.MouseLeft += (s, a) => UI.Ontop = false;
-			}
+			}*/
 			void HeightWidth(Widget widget, int height, int width) {
 				widget.MinWidth = width;
 				widget.MinHeight = height;
@@ -61,7 +69,7 @@ public static class UI
 				imageButton1.Left = -19;
 				imageButton1.Margin = new Thickness(0, 0, -11, 0);
 				imageButton1.TouchDown += (s, a) =>  Game1.desktop.Widgets.Add(colorPickerDialog1);
-				TopOfUi(imageButton1);
+			//	//TopOfUi(imageButton1);
 				return imageButton1;
 			}
 
@@ -69,7 +77,7 @@ public static class UI
 			textButton1.Text = "World Painter";
 			textButton1.Toggleable = true;
 			textButton1.TouchDown += (s, a) => PaintMode = !PaintMode;
-			TopOfUi(textButton1);
+			////TopOfUi(textButton1);
 
 			var imageButton1 = ImageB(2,0,"#CF56BFFF");
 			var textButton2 = new TextButton();
@@ -82,7 +90,7 @@ public static class UI
 				UseColor = boxColor;
 			};
 			Alignment(textButton2, HorizontalAlignment.Center, VerticalAlignment.Center);
-			TopOfUi(textButton2);
+			////TopOfUi(textButton2);
 
 			var imageButton2 = ImageB(2,1,"#5756D5FF");
 			var textButton3 = new TextButton();
@@ -94,7 +102,7 @@ public static class UI
 				UseColor = boxColor;
 			};
 			ColRow(textButton3,0,1);
-			TopOfUi(textButton3);
+		//	//TopOfUi(textButton3);
 
 			var imageButton3 = ImageB(2,2,"#5BC6FAFF");
 			var textButton4 = new TextButton();
@@ -106,7 +114,7 @@ public static class UI
 				UseColor = boxColor;
 			};
 			ColRow(textButton4,0,2);
-			TopOfUi(textButton4);
+		//	//TopOfUi(textButton4);
 
 
 
@@ -121,11 +129,8 @@ public static class UI
 				UseColor = boxColor;
 			};
 			ColRow(textButton5,0,3);
-			TopOfUi(textButton5);
-
-
-
-
+			//TopOfUi(textButton5);
+			
 			var imageButton5 = ImageB(2,4,"#4BD961FF");
 			var textButton6 = new TextButton();
 			textButton6.Text = "Biome5";
@@ -137,7 +142,7 @@ public static class UI
 				UseColor = boxColor;
 			};
 			ColRow(textButton6,0,4);
-			TopOfUi(textButton6);
+			//TopOfUi(textButton6);
 
 			var grid1 = new Grid();
 			grid1.ColumnSpacing = 10;
@@ -151,7 +156,7 @@ public static class UI
 			grid1.Widgets.Add(textButton4); grid1.Widgets.Add(imageButton3);
 			grid1.Widgets.Add(textButton5); grid1.Widgets.Add(imageButton4);
 			grid1.Widgets.Add(textButton6); grid1.Widgets.Add(imageButton5);
-			//TopOfUi(grid1);
+			////TopOfUi(grid1);
 
 			var window1 = new Window();
 			window1.Title = "Biomes";
@@ -163,64 +168,63 @@ public static class UI
 			window1.Height = 144;
 			window1.IsModal = false;
 			window1.Content=grid1;
-			TopOfUi(window1);
+			//TopOfUi(window1);
 
 			var label1 = new Label();
 			label1.Text = "Climate Type:";
-			TopOfUi(label1);
+			//TopOfUi(label1);
 
 			var listItem1 = new ListItem();
 			listItem1.Text = "Desert";
-			//TopOfUi(listItem1);
+			////TopOfUi(listItem1);
 
 			var comboBox1 = new ComboBox();
-			comboBox1.Items.Add(listItem1);
 			ColRow(comboBox1, 1,0);
-			TopOfUi(comboBox1);
+			//TopOfUi(comboBox1);
 
 			var label2 = new Label();
 			label2.Text = "Events:";
 			ColRow(label2, 0,1);
-			TopOfUi(label2);
+			//TopOfUi(label2);
 
 			var textButton7 = new TextButton();
 			textButton7.Text = "File";
 			textButton7.Left = -35;
 			ColRow(textButton7, 1,1);
-			TopOfUi(textButton7);
+			//TopOfUi(textButton7);
 
 			var label3 = new Label();
 			label3.Text = "Enemies:";
 			ColRow(label3, 0,2);
-			TopOfUi(label3);
+			//TopOfUi(label3);
 
 			var checkBox1 = new CheckBox();
 			ColRow(checkBox1, 1,1);
-			TopOfUi(checkBox1);
+			//TopOfUi(checkBox1);
 
 			var textButton8 = new TextButton();
 			textButton8.Text = "File";
 			textButton8.Left = -35;
 			ColRow(textButton8, 1,2);
-			TopOfUi(textButton8);
+			//TopOfUi(textButton8);
 
 			var checkBox2 = new CheckBox();
 			ColRow(checkBox2, 1,2);
-			TopOfUi(checkBox2);
+			//TopOfUi(checkBox2);
 
 			var label4 = new Label();
 			label4.Text = "Terrain:";
 			ColRow(label4, 0,3);
-			TopOfUi(label4);
+			//TopOfUi(label4);
 
 			var textButton9 = new TextButton();
 			textButton9.Text = "File";
 			textButton9.Left = -35;
 			ColRow(textButton9, 1,3);
-			TopOfUi(textButton9);
+			//TopOfUi(textButton9);
 			var checkBox3 = new CheckBox();
 			ColRow(checkBox3, 1,3);
-			TopOfUi(checkBox3);
+			//TopOfUi(checkBox3);
 
 			var spinButton = SplotchSizeWheel();
 
@@ -249,7 +253,28 @@ public static class UI
 					Height = 144,
 					Content = grid2
 				};
-			TopOfUi(window2);
+			//TopOfUi(window2);
+
+
+			/*  WIP FOR DATES*/
+			var year = new SpinButton(){GridColumn =3, GridRow = 3};
+			var monthBox = new ComboBox(){GridColumn =4, GridRow = 3};
+			foreach (var month in Months) {
+				monthBox.Items.Add(new ListItem(month));
+			}
+			monthBox.Items.Add(listItem1);
+			var day = new SpinButton(){GridColumn =5, GridRow = 3};
+			
+			TextBox InformationBox = new TextBox { Text = "Current Weather:	", GridColumn = 6, GridRow = 3};
+			InformationBox.Wrap = true;
+			
+			RootGrid.Widgets.Add(year);
+			RootGrid.Widgets.Add(monthBox);
+			RootGrid.Widgets.Add(day);
+			RootGrid.Widgets.Add(InformationBox);
+
+
+
 			RootGrid.Widgets.Add(textButton1);
 			RootGrid.Widgets.Add(window1);
 			RootGrid.Widgets.Add(window2);
