@@ -20,7 +20,11 @@
     <ItemGroup>
         <EmbeddedResource Include="Icon.ico" />
         <EmbeddedResource Include="Icon.bmp" />
-        <EmbeddedResource Update="StringTest.resx">
+        <EmbeddedResource Update="Code\StringTest.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>StringTest.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Work\Enum's and Constants\StringTest.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>StringTest.Designer.cs</LastGenOutput>
         </EmbeddedResource>
@@ -56,7 +60,7 @@
       <ProjectReference Include="..\Nez.Portable\Nez.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Update="StringTest.Designer.cs">
+      <Compile Update="Code\StringTest.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>StringTest.resx</DependentUpon>

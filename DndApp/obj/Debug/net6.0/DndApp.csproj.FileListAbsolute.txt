@@ -201,5 +201,5 @@ C:/Users/graym/Documents/GitHub/Traveler/DndApp/obj/Debug/net6.0/DndApp.genrunti
 /home/Grayson/Documents/GitHub/Traveler/DndApp/bin/Debug/net6.0/Nez.pdb
 /home/Grayson/Documents/GitHub/Traveler/DndApp/obj/Debug/net6.0/DndApp.csproj.CopyComplete
 /home/Grayson/Documents/GitHub/Traveler/DndApp/obj/Debug/net6.0/DndApp.genruntimeconfig.cache
-/home/Grayson/Documents/GitHub/Traveler/DndApp/obj/Debug/net6.0/DndApp.StringTest.resources
 /home/Grayson/Documents/GitHub/Traveler/DndApp/obj/Debug/net6.0/DndApp.csproj.GenerateResource.cache
+/home/Grayson/Documents/GitHub/Traveler/DndApp/obj/Debug/net6.0/DndApp.Work.Enum_s_and_Constants.StringTest.resources

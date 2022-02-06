@@ -1,0 +1,94 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Xna.Framework;
+using Nez;
+using Nez.Sprites;
+using Nez.Textures;
+namespace DndApp;
+
+public class Party: Entity, IAlive
+{
+    private readonly string _spriteLocation;
+    private Mover _mover;
+    private SpriteAnimator _animator;
+    private int _count=0;
+    public bool AllowMovement;
+    public Vector2 LastRecordedMousePos=new(0,0);
+    public bool Paused { get; set; }
+    public float Speed { get; set; }
+    public List<Vector2> MoveLocations { get; set; } = new();
+    public Party(string spriteLocation, float speed)
+    { 
+        this.Speed = speed;
+        _spriteLocation= spriteLocation;
+    }
+
+    public override void OnAddedToScene()
+    {
+        base.OnAddedToScene();
+        var texture = this.Scene.Content.LoadTexture(_spriteLocation);
+        var sprites = Sprite.SpritesFromAtlas(texture, 16, 16);
+
+        _mover = this.AddComponent(new Mover());
+        _animator = this.AddComponent<SpriteAnimator>();
+
+        // add a shadow that will only be rendered when our player is behind the details layer of the tilemap (RenderLayer -1). The shadow
+        // must be in a renderLayer ABOVE the details layer to be visible.
+        var shadow = this.AddComponent(new SpriteMime(this.GetComponent<SpriteRenderer>()));
+        shadow.Color = new Color(10, 10, 10, 80);
+        shadow.Material = Material.StencilRead();
+        shadow.RenderLayer = -2; // ABOVE our tiledmap layer so it is visible
+        
+        _animator.AddAnimation("WalkLeft", new[] { sprites[2], sprites[6], sprites[10], sprites[14] });
+        _animator.AddAnimation("WalkRight",new[] { sprites[3], sprites[7], sprites[11], sprites[15] });
+        _animator.AddAnimation("WalkDown", new[] {sprites[0],sprites[4],sprites[8],sprites[12] });
+        _animator.AddAnimation("WalkUp", new[] { sprites[1], sprites[5], sprites[9], sprites[13] });
+    }
+
+    private static string DirectionAnimation(Vector2 direction)
+    {
+        var animation = direction switch {
+            { Y: < 0 } => "WalkUp",
+            { Y: > 0 } => "WalkDown",
+            _ => direction switch {
+                { X: < 0 } => "WalkLeft", 
+                { X: > 0 } => "WalkRight", 
+                _ => "WalkDown"
+            } 
+        };
+        return animation;
+    }
+    
+    public void Move()
+    {
+        if (MoveLocations.Count==0) { AllowMovement = false; return; }
+        var animator = this.GetComponent<SpriteAnimator>();
+        var mover = this.GetComponent<Mover>();
+        
+        
+        Vector2 direction = Vector2.Normalize(this.Position - MoveLocations.Last());
+        var distance= Vector2.Distance(MoveLocations.Last(), this.Position);
+   
+        if (direction != Vector2.Zero)
+        {
+            var animation = DirectionAnimation(direction);
+            if (!animator.IsAnimationActive(animation)) animator.Play(animation);
+            else animator.UnPause();
+            var movement = direction * Speed * Time.DeltaTime;
+            mover.CalculateMovement(ref movement, out _);
+            mover.ApplyMovement(movement);
+        }
+        else
+        {
+            animator.Pause();
+            _count++;
+        }
+    }
+    public override void Update()
+    {
+        base.Update();
+        if (AllowMovement) Move();
+    }
+
+
+}

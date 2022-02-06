@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Myra;
 using Myra.Graphics2D.Brushes;
@@ -10,11 +11,15 @@ namespace DndApp;
 public static class UI
 {
 	public static bool PaintMode { get; set; }
-    public static string PaintName { get; set; } = "Desert";
+  
+	public static string PaintName { get; set; } = "Desert";
     public static string LastUsedPaintName { get; set; }
     public static int SplotchSize { get; set; } = 2;
     public static Climates ClimateType { get; set; } = Climates.Desert;
     public static Color UseColor { get; set; } = Color.Yellow;
+    public static bool TimeContinue { get; set; }
+    public static bool TimeSetChanged { get; set; } = false;
+
     public static Grid RootGrid = new Grid { RowSpacing = 8, ColumnSpacing = 8 };
     public static bool Ontop;
     public static SelectedPaint CurrentPaint = SelectedPaint.None;
@@ -28,18 +33,17 @@ public static class UI
 	    ChoiceFive,
 	    ChoiceSix,
     }
-
-    public static string[] Months = new string[]
-    {
-	    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
-	    "December"
-    };
+    public static string[] Months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    public static int Month=1;
+    public static float? Year=1, Day=1, Hour=0;
+    public static TextBox InformationBox;
+    public static bool TempPressed;
 
     static UI()
     {
         MyraEnvironment.Game = Game1.Instance;
-        Game1.desktop = new Desktop();
-        Game1.desktop.Root = RootGrid;
+        Game1.Desktop = new Desktop();
+        Game1.Desktop.Root = RootGrid;
     }
     public static void BuildUI()
 		{
@@ -68,7 +72,7 @@ public static class UI
 				ColRow(imageButton1,col, row);
 				imageButton1.Left = -19;
 				imageButton1.Margin = new Thickness(0, 0, -11, 0);
-				imageButton1.TouchDown += (s, a) =>  Game1.desktop.Widgets.Add(colorPickerDialog1);
+				imageButton1.TouchDown += (s, a) =>  Game1.Desktop.Widgets.Add(colorPickerDialog1);
 			//	//TopOfUi(imageButton1);
 				return imageButton1;
 			}
@@ -257,20 +261,59 @@ public static class UI
 
 
 			/*  WIP FOR DATES*/
-			var year = new SpinButton(){GridColumn =3, GridRow = 3};
-			var monthBox = new ComboBox(){GridColumn =4, GridRow = 3};
+			var year = new SpinButton(){GridColumn =3, GridRow = 0};
+			year.MouseLeft += (s, a) => Year = year.Value;
+			year.ValueChangedByUser +=(s,a)=> UI.TimeSetChanged=!UI.TimeSetChanged;
+			year.Value = 1;
+			
+			var monthBox = new ComboBox(){GridColumn =4, GridRow = 0};
 			foreach (var month in Months) {
 				monthBox.Items.Add(new ListItem(month));
 			}
-			monthBox.Items.Add(listItem1);
-			var day = new SpinButton(){GridColumn =5, GridRow = 3};
+			monthBox.SelectedIndex = 0;
+			monthBox.MouseLeft += (s, a) => {
+				/*for (int i = 1; i <= Months.Length; i++)
+					if (monthBox.SelectedItem.Text == Months[i]) { Month = i; break;}*/ 
+				Month=	monthBox.SelectedIndex.Value+1;
+			};
+			monthBox.SelectedItem.Changed +=(s,a)=> UI.TimeSetChanged=!UI.TimeSetChanged;
+
+			var day = new SpinButton(){GridColumn =5, GridRow = 0};
+			day.MouseLeft += (s, a) => Day = day.Value;
+			day.ValueChangedByUser +=(s,a)=> UI.TimeSetChanged=!UI.TimeSetChanged;
+			day.Maximum = 31;
+			day.Minimum = 1;
+			day.Value = 1;
+
+
+			var hour = new SpinButton(){GridColumn =5, GridRow = 1};
+			hour.MouseLeft += (s, a) => Hour = hour.Value;
+			hour.ValueChangedByUser +=(s,a)=> UI.TimeSetChanged=!UI.TimeSetChanged;
+
+			hour.Maximum = 23;
+			hour.Minimum = 0;
+			hour.Value = 0;
 			
-			TextBox InformationBox = new TextBox { Text = "Current Weather:	", GridColumn = 6, GridRow = 3};
+			
+			var tempButton = new TextButton(){Text = "temp"};
+			tempButton.TouchDown += (s, a) => { TempPressed = !TempPressed; };
+			
+			var continueButton = new TextButton();
+			continueButton.Text = "Time Continue";
+			continueButton.Left = -35;
+			continueButton.Toggleable = true;
+			continueButton.TouchDown += (s, a) => { TimeContinue = !TimeContinue;};
+			ColRow(continueButton, 1,4);
+			
+			
+			
+			InformationBox = new TextBox { Text = "Current Weather:	", GridColumn = 6, GridRow = 0};
 			InformationBox.Wrap = true;
 			
 			RootGrid.Widgets.Add(year);
 			RootGrid.Widgets.Add(monthBox);
 			RootGrid.Widgets.Add(day);
+			RootGrid.Widgets.Add(hour);
 			RootGrid.Widgets.Add(InformationBox);
 
 
@@ -279,10 +322,13 @@ public static class UI
 			RootGrid.Widgets.Add(window1);
 			RootGrid.Widgets.Add(window2);
 			RootGrid.Widgets.Add(spinButton);
+			RootGrid.Widgets.Add(continueButton);
 		}
+
+
     private static SpinButton SplotchSizeWheel()
     {
-	    SpinButton patchSpinButton = new SpinButton { GridColumn = 5, GridRow = 0, Value = 2, };
+	    SpinButton patchSpinButton = new SpinButton { GridColumn = 2, GridRow = 2, Value = 4, };
 	    patchSpinButton.MouseEntered += (s, a) => UI.Ontop = true;
 	    patchSpinButton.MouseLeft+= (s, a) => {
 		    UI.Ontop = false;
@@ -317,13 +363,13 @@ public static class UI
         paintNameBox.KeyboardFocusChanged += (s, a) => {
             if (!paintNameBox.IsKeyboardFocused) PaintName = paintNameBox.Text;
         };
-        paintNameBox.Text = "Desert";
+       // paintNameBox.Text = "Desert";
         return paintNameBox;
     }
     private static ComboBox ClimateTypeComboBox()
     {
         ComboBox ClimateTypeComboBox = new ComboBox();
-        ClimateTypeComboBox.Items.Add(new ListItem("Desert"));
+        //ClimateTypeComboBox.Items.Add(new ListItem("Desert"));
         ClimateTypeComboBox.Items.Add(new ListItem("Tundra"));
         ClimateTypeComboBox.Items.Add(new ListItem("Grassland"));
         ClimateTypeComboBox.SelectedIndex = 0;
