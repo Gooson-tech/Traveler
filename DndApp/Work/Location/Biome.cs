@@ -25,66 +25,9 @@ public class Biome
 
     public static void CreateNewBiome(string paintName, Climates climateType) =>
         BiomeList.AddIfNotPresent(new Biome(paintName, climateType));
-
-    /*
-    public static void main(){
-    hour= (INDEX%24)
-    day=
-    31,28,31,30,31,30,31,31,30,31,30,31
-    (INDEX/24)-hour 
-    (if month==month.jan){maxDay=31}
-    if(day>maxday){
-    }
-    month= index/365
-    year= day/365
-    day
     
-    all we need is the monthType. AdvancedSelect-> leapyear?
-    }
-    */
-    /*public static void getMonth(int currentHour, int currentdayIndx enum selectedMonth)
-    {
-        
-        // Calculate what day of the week is 36 days from this instant.
-        var x = System.DateTime.DaysInMonth(1999,2);
-        var c =new DateTime(1990, 1,  1,1,0,0);
-
-        c.Add(new TimeSpan(1));
-        var test = c.Date;
-        System.TimeSpan duration = new System.TimeSpan(36, 0, 0, 0);
-        System.DateTime answer = today.Add(duration);
-        System.Console.WriteLine("{0:dddd}", answer);
-        
-        
-        int index= currentHour+currentDay
-        if (selectedMonth.Jan)
-        {
-        //get day()    
-        }
-        //continue
-        
-    }*/
-        
-    public static void getDay()
-    {
-        
-    }
-
-
-
-
-
-
-
     public Biome(string name, Climates climateType)
     {
-    
-
-
-
-
-
-
         Name = name;
         ClimateType = climateType;
         if (BiomeList.AddIfNotPresent(this))

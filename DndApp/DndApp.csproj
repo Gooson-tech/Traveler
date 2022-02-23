@@ -24,7 +24,7 @@
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>StringTest.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Update="Work\Enum's and Constants\StringTest.resx">
+        <EmbeddedResource Update="StringTest.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>StringTest.Designer.cs</LastGenOutput>
         </EmbeddedResource>

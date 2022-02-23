@@ -6,21 +6,22 @@ using Nez.Sprites;
 using Nez.Textures;
 namespace DndApp;
 
-public class Party: Entity, IAlive
+public class Party : Entity, IAlive
 {
     private readonly string _spriteLocation;
     private Mover _mover;
     private SpriteAnimator _animator;
-    private int _count=0;
+    private int _count = 0;
     public bool AllowMovement;
-    public Vector2 LastRecordedMousePos=new(0,0);
-    public bool Paused { get; set; }
+    public Vector2 LastRecordedMousePos = new(0, 0);
     public float Speed { get; set; }
-    public List<Vector2> MoveLocations { get; set; } = new();
+    public Queue<Vector2> MoveLocations { get; set; } = new();
+    public bool move { get; set; }
+
     public Party(string spriteLocation, float speed)
-    { 
+    {
         this.Speed = speed;
-        _spriteLocation= spriteLocation;
+        _spriteLocation = spriteLocation;
     }
 
     public override void OnAddedToScene()
@@ -38,38 +39,41 @@ public class Party: Entity, IAlive
         shadow.Color = new Color(10, 10, 10, 80);
         shadow.Material = Material.StencilRead();
         shadow.RenderLayer = -2; // ABOVE our tiledmap layer so it is visible
-        
+
         _animator.AddAnimation("WalkLeft", new[] { sprites[2], sprites[6], sprites[10], sprites[14] });
-        _animator.AddAnimation("WalkRight",new[] { sprites[3], sprites[7], sprites[11], sprites[15] });
-        _animator.AddAnimation("WalkDown", new[] {sprites[0],sprites[4],sprites[8],sprites[12] });
+        _animator.AddAnimation("WalkRight", new[] { sprites[3], sprites[7], sprites[11], sprites[15] });
+        _animator.AddAnimation("WalkDown", new[] { sprites[0], sprites[4], sprites[8], sprites[12] });
         _animator.AddAnimation("WalkUp", new[] { sprites[1], sprites[5], sprites[9], sprites[13] });
     }
 
     private static string DirectionAnimation(Vector2 direction)
     {
-        var animation = direction switch {
+        var animation = direction switch
+        {
             { Y: < 0 } => "WalkUp",
             { Y: > 0 } => "WalkDown",
-            _ => direction switch {
-                { X: < 0 } => "WalkLeft", 
-                { X: > 0 } => "WalkRight", 
+            _ => direction switch
+            {
+                { X: < 0 } => "WalkLeft",
+                { X: > 0 } => "WalkRight",
                 _ => "WalkDown"
-            } 
+            }
         };
         return animation;
     }
-    
+
+
     public void Move()
     {
-        if (MoveLocations.Count==0) { AllowMovement = false; return; }
+  
+
         var animator = this.GetComponent<SpriteAnimator>();
         var mover = this.GetComponent<Mover>();
-        
-        
-        Vector2 direction = Vector2.Normalize(this.Position - MoveLocations.Last());
-        var distance= Vector2.Distance(MoveLocations.Last(), this.Position);
-   
-        if (direction != Vector2.Zero)
+
+        var distance = Vector2.Distance(MoveLocations.Peek(), this.Position);
+        Vector2 direction = Vector2.Normalize(MoveLocations.Peek() - this.Position);
+        var arrived = distance <= 2;
+        if (!arrived)
         {
             var animation = DirectionAnimation(direction);
             if (!animator.IsAnimationActive(animation)) animator.Play(animation);
@@ -81,14 +85,30 @@ public class Party: Entity, IAlive
         else
         {
             animator.Pause();
+            MoveLocations.Dequeue();
             _count++;
         }
     }
+
     public override void Update()
     {
         base.Update();
-        if (AllowMovement) Move();
+        if (!move) return;
+        
+
+        if (MoveLocations.Count == 0) {
+            StopReset();
+            return;
+        }
+        else { Move(); }
+
     }
-
-
+    
+    public void StopReset()
+    {
+        MoveLocations.Clear();
+        _animator.Stop();
+    }
+    //colision result
+    
 }

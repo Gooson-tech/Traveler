@@ -2,18 +2,16 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Nez;
 using Nez.Sprites;
 namespace DndApp;
 
 public class Game1 : Core
 {
-    private static Entity _eraser;
 
     // private static void Window_ClientSizeChanged(object sender, System.EventArgs e) => UI.BuildUI();
-    private static Vector2 _lstClkLocation = new(0, 0);
     public static Myra.Graphics2D.UI.Desktop Desktop;
-
     private Party _party;
     private static DateTime _date = new (2015,1,1);
     protected override void Initialize()
@@ -49,10 +47,13 @@ public class Game1 : Core
         Scene.ClearColor = Color.Black;
         Scene.LetterboxColor = Color.Black;
     }
+
+    private bool TimePaused { get; set; } = true;
     private void ScheduledTasks()
-    {
+    { 
         Schedule(1, true, GetBiomeInfoForTime);
     }
+    
     protected override void LoadContent()
     {
         base.LoadContent();
@@ -66,7 +67,9 @@ public class Game1 : Core
     private static readonly DateTime StartDate = new(2015,1,1);
     private void GetBiomeInfoForTime(ITimer obj)
     {
+        //fix later
         if (!UI.TimeSetChanged && !UI.TimeContinue) return;
+        
         if (UI.TimeContinue)
         {
             _date = _lastDate;
@@ -80,7 +83,12 @@ public class Game1 : Core
             _date = _date.AddHours((int)UI.Hour);
         }
         var today = _date-StartDate;
-        var index = today.Hours;
+        int index = (int)today.TotalHours;
+        if (index>=Climate.Dec1Data.Length)
+        {
+            UI.InformationBox.Text = "NOW: " + "ERROR" + "Weather: " + "ERROR";
+            return;
+        }
         var todaysResults = Climate.Dec1Data[index];
         UI.InformationBox.Text = "NOW: " + _date + "Weather: " + todaysResults;
         _lastDate=_date;
@@ -89,40 +97,90 @@ public class Game1 : Core
     protected override void Update(GameTime gametime) 
     {
        base.Update(gametime);
+       AllUserActions();
+    }
 
+    private void AllUserActions()
+    {
+        if (UI.Ontop) return;
 
-       if (Input.LeftMouseButtonDown)
-       {
-           _party.MoveLocations.Add(Input.ScaledMousePosition);
-           if (Vector2.Distance(_party.MoveLocations.Last(),_party.LastRecordedMousePos)>5)  {
-               _party.MoveLocations.Add(Input.ScaledMousePosition);
-           }
-       }
-       if (Input.LeftMouseButtonReleased) { _party.AllowMovement = true; }
-       
-       if (UI.Ontop) return;
-       //camera
-       SceneCamera.CameraZoom(Input.MouseWheel);
+        //camera
+        SceneCamera.CameraZoom(Input.MouseWheel);
+        //party
+        PartyKeyActions();
+        PartyUIActions();
+        //draw
+        DrawActions();
+    }
 
-       if (UI.PaintName != UI.LastUsedPaintName && UI.PaintName != null)
-       {
-           Biome.CreateNewBiome(UI.PaintName, UI.ClimateType);
-           UI.LastUsedPaintName = UI.PaintName;
-       }
-           
-       if (!UI.PaintMode) return;
-       if (Input.LeftMouseButtonDown) DoPainting();
-       else if (Input.RightMouseButtonDown)
-       {
-           _eraser.Enabled = true;
-           DoErasing();
-       }
-       else _eraser.Enabled = false;
-   }
+    private void PartyUIActions()
+    {
+        
+    }
     
+    private static Entity _eraser;
+    private void DrawActions()
+    {
+        //TODO: Insert UI for draw actions too
+        
+        //Initiate
+        if (UI.PaintName != UI.LastUsedPaintName && UI.PaintName != null)
+        {
+            Biome.CreateNewBiome(UI.PaintName, UI.ClimateType);
+            UI.LastUsedPaintName = UI.PaintName;
+        }
+        if (!UI.PaintMode) return;
+        if (Input.LeftMouseButtonDown) DoPainting();
+        //eraser
+        else if (Input.RightMouseButtonDown)
+        {
+            _eraser.Enabled = true;
+            DoErasing();
+        }
+        else _eraser.Enabled = false;
+    }
+
+    private void PartyKeyActions()
+    {
+        if (Input.IsKeyDown(Keys.LeftControl) && Input.LeftMouseButtonPressed)
+        {
+            TimePaused = true;
+            _party.StopReset();
+            
+            _party.SetPosition(Scene.Camera.MouseToWorldPoint());
+            return;
+        }
+        if (Input.LeftMouseButtonDown) {
+            if (_party.move)
+            {
+                _party.move = false; 
+                _party.StopReset();
+            } 
+            
+            TimePaused = true;
+
+            _party.MoveLocations.Enqueue(Scene.Camera.MouseToWorldPoint());
+            if (Vector2.Distance(_party.MoveLocations.Last(), _party.LastRecordedMousePos) > 5) 
+                _party.MoveLocations.Enqueue(Scene.Camera.MouseToWorldPoint());
+        }
+        if (Input.LeftMouseButtonReleased)
+        {
+            TimePaused = false;
+            _party.move = true;
+        }
+        if (Input.IsKeyPressed(Keys.Space))
+        {
+            TimePaused = true;
+            _party.StopReset();
+            _party.move = false;
+
+        }    
+    }
+    private static Vector2 _lstClkLocation = new(0, 0);
     private static void DoPainting() 
     {
-       var clkLocation = Game1.Scene.Camera.MouseToWorldPoint();
+        
+        var clkLocation = Game1.Scene.Camera.MouseToWorldPoint();
        clkLocation.Round();
        if (!Paint.AllowedRange(_lstClkLocation, clkLocation)) return;
        var splotch = new Paint(UI.PaintName, UI.UseColor);
@@ -130,7 +188,6 @@ public class Game1 : Core
 
        _lstClkLocation = clkLocation;
        splotch.SetPosition(Scene.Camera.MouseToWorldPoint());
-
        Scene.AddEntity(splotch);
     }
     private static void DoErasing() 
