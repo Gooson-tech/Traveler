@@ -1,33 +1,41 @@
 {
   "format": 1,
   "restore": {
-    "/home/Grayson/Documents/GitHub/Traveler/DndApp/DndApp.csproj": {}
+    "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\DndApp.csproj": {}
   },
   "projects": {
-    "/home/Grayson/Documents/GitHub/Traveler/DndApp/DndApp.csproj": {
+    "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\DndApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Grayson/Documents/GitHub/Traveler/DndApp/DndApp.csproj",
+        "projectUniqueName": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\DndApp.csproj",
         "projectName": "DndApp",
-        "projectPath": "/home/Grayson/Documents/GitHub/Traveler/DndApp/DndApp.csproj",
-        "packagesPath": "/home/Grayson/.nuget/packages/",
-        "outputPath": "/home/Grayson/Documents/GitHub/Traveler/DndApp/obj/",
+        "projectPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\DndApp.csproj",
+        "packagesPath": "C:\\Users\\graym\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/Grayson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\graym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj": {
-                "projectPath": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj"
+              "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj": {
+                "projectPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj"
               }
             }
           }
@@ -100,6 +108,22 @@
               "target": "Package",
               "version": "[1.3.1, )"
             },
+            "Qml.Net": {
+              "target": "Package",
+              "version": "[0.12.0-alpha.3, )"
+            },
+            "Qml.Net.LinuxBinaries": {
+              "target": "Package",
+              "version": "[0.12.0-alpha.3, )"
+            },
+            "Qml.Net.OSXBinaries": {
+              "target": "Package",
+              "version": "[0.12.0-alpha.3, )"
+            },
+            "Qml.Net.WindowsBinaries": {
+              "target": "Package",
+              "version": "[0.12.0-alpha.3, )"
+            },
             "SliceAndDice": {
               "target": "Package",
               "version": "[1.0.0, )"
@@ -124,26 +148,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj": {
+    "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj",
+        "projectUniqueName": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj",
         "projectName": "Nez",
-        "projectPath": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj",
-        "packagesPath": "/home/Grayson/.nuget/packages/",
-        "outputPath": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/obj/Nez/",
+        "projectPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj",
+        "packagesPath": "C:\\Users\\graym\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\obj\\Nez\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/Grayson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\graym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -231,7 +263,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

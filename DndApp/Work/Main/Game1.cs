@@ -1,24 +1,27 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez;
 using Nez.Sprites;
+using System;
+using System.Linq;
+using System.Threading;
+
 namespace DndApp;
 
 public class Game1 : Core
 {
-
     // private static void Window_ClientSizeChanged(object sender, System.EventArgs e) => UI.BuildUI();
     public static Myra.Graphics2D.UI.Desktop Desktop;
     private Party _party;
     private static DateTime _date = new (2015,1,1);
     protected override void Initialize()
     {
+
         base.Initialize();
         DebugRenderEnabled = true;
-        //Window.AllowUserResizing = true;
+        Window.AllowUserResizing = true;
+        Window.
         var mapTexture = Content.LoadTexture(FileLocations.Map);
         SceneSetup(mapTexture);
         UI.BuildUI();
@@ -30,9 +33,11 @@ public class Game1 : Core
         Biome.BiomeList.Add(tundra);
         Biome.BiomeList.Add(grassland);
         _eraser = Scene.CreateEntity("Eraser");
-        _eraser.AddComponent(new Mouse());
+        _eraser.AddComponent(new Eraser());
         ScheduledTasks();
         LoadContent();
+        Thread newThread = new(StartQml.Start);
+        newThread.Start();
     }
     private static void SceneSetup(Texture2D mapTexture)
     {
@@ -104,6 +109,11 @@ public class Game1 : Core
     {
         if (UI.Ontop) return;
 
+
+        //var x= MyWorldPosition.CurrentBiomeName;
+        //string currentBiomeName = x.CurrentBiomeName;
+        //string c= currentBiomeName;
+
         //camera
         SceneCamera.CameraZoom(Input.MouseWheel);
         //party
@@ -122,15 +132,22 @@ public class Game1 : Core
     private void DrawActions()
     {
         //TODO: Insert UI for draw actions too
+        if (Input.MiddleMouseButtonPressed)
+        {
+           // Debug.Log(          QmlType.Count);
+        }
         
+        if (!UI.PaintMode) return;
         //Initiate
         if (UI.PaintName != UI.LastUsedPaintName && UI.PaintName != null)
         {
+
             Biome.CreateNewBiome(UI.PaintName, UI.ClimateType);
             UI.LastUsedPaintName = UI.PaintName;
+
+            if (Input.LeftMouseButtonDown) DoPainting();
+
         }
-        if (!UI.PaintMode) return;
-        if (Input.LeftMouseButtonDown) DoPainting();
         //eraser
         else if (Input.RightMouseButtonDown)
         {
@@ -138,6 +155,19 @@ public class Game1 : Core
             DoErasing();
         }
         else _eraser.Enabled = false;
+    }
+    private static void DoPainting()
+    {
+        var clkLocation = Game1.Scene.Camera.MouseToWorldPoint();
+        if (!Paint.AllowedRange(_lstClkLocation, clkLocation)) return;
+
+
+        var splotch = new Paint(UI.PaintName, UI.UseColor, Biome.BiomeList);
+        splotch.SetScale(new Vector2(UI.SplotchSize, UI.SplotchSize));
+
+        _lstClkLocation = clkLocation;
+        splotch.SetPosition(Scene.Camera.MouseToWorldPoint());
+        Scene.AddEntity(splotch);
     }
 
     private void PartyKeyActions()
@@ -177,19 +207,6 @@ public class Game1 : Core
         }    
     }
     private static Vector2 _lstClkLocation = new(0, 0);
-    private static void DoPainting() 
-    {
-        
-        var clkLocation = Game1.Scene.Camera.MouseToWorldPoint();
-       clkLocation.Round();
-       if (!Paint.AllowedRange(_lstClkLocation, clkLocation)) return;
-       var splotch = new Paint(UI.PaintName, UI.UseColor);
-       splotch.SetScale(new Vector2(UI.SplotchSize, UI.SplotchSize));
-
-       _lstClkLocation = clkLocation;
-       splotch.SetPosition(Scene.Camera.MouseToWorldPoint());
-       Scene.AddEntity(splotch);
-    }
     private static void DoErasing() 
     {
        var clkLocation = Scene.Camera.MouseToWorldPoint();

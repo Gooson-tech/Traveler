@@ -54,6 +54,7 @@ namespace DndApp
             UIApplication.Main(args, null, "AppDelegate");
 #else
             RunGame();
+
 #endif
         }
 

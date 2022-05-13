@@ -1,25 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj": {}
+    "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj": {}
   },
   "projects": {
-    "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj": {
+    "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj",
+        "projectUniqueName": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj",
         "projectName": "Nez",
-        "projectPath": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/Nez.csproj",
-        "packagesPath": "/home/Grayson/.nuget/packages/",
-        "outputPath": "/home/Grayson/Documents/GitHub/Traveler/Nez.Portable/obj/Nez/",
+        "projectPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\Nez.csproj",
+        "packagesPath": "C:\\Users\\graym\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\Nez.Portable\\obj\\Nez\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/Grayson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\graym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -107,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

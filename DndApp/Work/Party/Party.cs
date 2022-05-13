@@ -32,6 +32,7 @@ public class Party : Entity, IAlive
 
         _mover = this.AddComponent(new Mover());
         _animator = this.AddComponent<SpriteAnimator>();
+        this.AddComponent(new BoxCollider());
 
         // add a shadow that will only be rendered when our player is behind the details layer of the tilemap (RenderLayer -1). The shadow
         // must be in a renderLayer ABOVE the details layer to be visible.
@@ -39,6 +40,7 @@ public class Party : Entity, IAlive
         shadow.Color = new Color(10, 10, 10, 80);
         shadow.Material = Material.StencilRead();
         shadow.RenderLayer = -2; // ABOVE our tiledmap layer so it is visible
+        this.AddComponent(new MyWorldPosition());
 
         _animator.AddAnimation("WalkLeft", new[] { sprites[2], sprites[6], sprites[10], sprites[14] });
         _animator.AddAnimation("WalkRight", new[] { sprites[3], sprites[7], sprites[11], sprites[15] });
@@ -58,6 +60,7 @@ public class Party : Entity, IAlive
                 { X: > 0 } => "WalkRight",
                 _ => "WalkDown"
             }
+
         };
         return animation;
     }
@@ -109,6 +112,30 @@ public class Party : Entity, IAlive
         MoveLocations.Clear();
         _animator.Stop();
     }
+ 
+
+}
+
+
+public class MyWorldPosition : Component, ITriggerListener {
+
     //colision result
-    
+    #region ITriggerListener implementation
+
+    public static string CurrentBiome;
+
+    void ITriggerListener.OnTriggerEnter(Collider other, Collider self)
+    {
+
+        CurrentBiome = other.GetComponent<IDd>().ID;
+    }
+
+    void ITriggerListener.OnTriggerExit(Collider other, Collider self)
+    {
+        Debug.Log("triggerExit: {0}", other.Entity.Name);
+    }
+
+    #endregion
+
+
 }
