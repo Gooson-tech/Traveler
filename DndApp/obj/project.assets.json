@@ -61,6 +61,9 @@
           "lib/netstandard2.0/info.lundin.math.dll": {}
         }
       },
+      "Meziantou.Analyzer/1.0.702": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -764,6 +767,21 @@
         "info.lundin.math.dll.nuspec",
         "lib/net40/info.lundin.math.dll",
         "lib/netstandard2.0/info.lundin.math.dll"
+      ]
+    },
+    "Meziantou.Analyzer/1.0.702": {
+      "sha512": "NuteVMqo6ygRNujU8/RrWahPIPm+kGopmYkROvNaEe5Lw/wfJMcUyrZlIaI0cmA4QDeKdmACjQbP41bXRGNy9w==",
+      "type": "package",
+      "path": "meziantou.analyzer/1.0.702",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "analyzers/dotnet/cs/Meziantou.Analyzer.dll",
+        "icon.png",
+        "meziantou.analyzer.1.0.702.nupkg.sha512",
+        "meziantou.analyzer.nuspec"
       ]
     },
     "Microsoft.CSharp/4.5.0": {
@@ -1943,6 +1961,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "ChaiFoxes.FMODAudio.Desktop >= 2.0.0",
+      "Meziantou.Analyzer >= 1.0.702",
       "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.2",
       "MonoGame.Content.Builder.Task >= 3.8.0.1641",
       "MonoGame.Extended >= 3.8.0",
@@ -2019,6 +2038,12 @@
           "ChaiFoxes.FMODAudio.Desktop": {
             "target": "Package",
             "version": "[2.0.0, )"
+          },
+          "Meziantou.Analyzer": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.0.702, )"
           },
           "Microsoft.NETFramework.ReferenceAssemblies": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

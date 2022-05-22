@@ -9,6 +9,7 @@
       "DndApp/1.0.0": {
         "dependencies": {
           "ChaiFoxes.FMODAudio.Desktop": "2.0.0",
+          "Meziantou.Analyzer": "1.0.702",
           "Microsoft.NETFramework.ReferenceAssemblies": "1.0.2",
           "MonoGame.Content.Builder.Task": "3.8.0.1641",
           "MonoGame.Extended": "3.8.0",
@@ -87,6 +88,7 @@
           }
         }
       },
+      "Meziantou.Analyzer/1.0.702": {},
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
@@ -512,6 +514,13 @@
       "sha512": "sha512-rCSUXUISKOmFkpEPd9wZJP9bHsyozEwvid3zO4gByG1QQX9IMAUZ8R9OZmpKp20JWrBMGBMTgoXAuLCSoK6VAQ==",
       "path": "info.lundin.math.dll/1.2.6",
       "hashPath": "info.lundin.math.dll.1.2.6.nupkg.sha512"
+    },
+    "Meziantou.Analyzer/1.0.702": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NuteVMqo6ygRNujU8/RrWahPIPm+kGopmYkROvNaEe5Lw/wfJMcUyrZlIaI0cmA4QDeKdmACjQbP41bXRGNy9w==",
+      "path": "meziantou.analyzer/1.0.702",
+      "hashPath": "meziantou.analyzer.1.0.702.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",

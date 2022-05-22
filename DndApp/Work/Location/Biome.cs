@@ -1,48 +1,61 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using Microsoft.Xna.Framework;
+using System.Linq;
+using Myra.Graphics2D.UI;
 using Nez;
 
-
 namespace DndApp;
-
-public class Biome
+public class Biome : Component
 {
+    public static readonly IDictionary<string, Biome> Cached =
+        new Dictionary<string, Biome>(StringComparer.OrdinalIgnoreCase);
 
-    public string Name;
-    public string[] Events;
-    public string[] Animals;
-    public string[] Enemies;
-    public string[] Buildings;
-    public Climates ClimateType;
-    public static List<Biome> BiomeList = new List<Biome>();
-   // private static IEnumerable<string> Climate1 = File.ReadLines("ClimateFile1");
-
-    public static void CreateNewBiome(string paintName, Climates climateType) =>
-        BiomeList.AddIfNotPresent(new Biome(paintName, climateType));
-    
-    public Biome(string name, Climates climateType)
+    public string Name { get; set; }
+    private readonly IReadOnlyList<string> Events;
+    private readonly IReadOnlyList<string> Animals;
+    private readonly IReadOnlyList<string> Enemies;
+    private readonly IReadOnlyList<string> Buildings;
+    public IReadOnlyList<string> Climate { get; set; }
+    public string GetClimateAt(int index)
     {
-        Name = name;
-        ClimateType = climateType;
-        if (BiomeList.AddIfNotPresent(this))
+        //looped around indexing of ClimateData
+        var total = Climate.Count;
+        var remainder = index switch
         {
-            var EventFile = name + "_Events.txt";
-            var AnimalsFile = name + "_Animals.txt";
-            var BuildingFile = name + "_Buildings.txt";
-            var EnemyFile = name + "_Enemies.txt";
-            using(StreamWriter sw = File.AppendText(EventFile)) { sw.WriteLine(""); }
-            using(StreamWriter sw = File.AppendText(AnimalsFile)) { sw.WriteLine(""); }
-            using(StreamWriter sw = File.AppendText(BuildingFile)) { sw.WriteLine(""); }
-            using(StreamWriter sw = File.AppendText(EnemyFile)) { sw.WriteLine(""); }
+            /* get the reverse index */
+            < 0 => (total - Math.Abs(index % total)) % total,
+            _ => index % total
+        };
 
-            Events = File.ReadAllLines(EventFile);
-            Animals = File.ReadAllLines(AnimalsFile);
-            Buildings = File.ReadAllLines(BuildingFile);
-            Enemies = File.ReadAllLines(EnemyFile);
-        }
+        return Climate[remainder];
+    }  
+   
+    // NOTE TO SELF, GET ALL EVENT names From Event file and then create Dtable from each
+    // new event(string) for each event file
+    // Event get total number of lines and randomly choose line from file
+    // Print Events in order of declared(so in a list)
+    // Random terrain should be semi deterministic=> by default should just be typical biomeTerrain (possibly this is settup in biomeTemplate)
+    public Biome(string name, Climate climate)
+    {
+        Name = name; 
+        var eventFile = name    + "_Events.txt";
+        var animalsFile = name  + "_Animals.txt";
+        var buildingFile = name + "_Buildings.txt";
+        var enemyFile = name    + "_Enemies.txt";
+
+        using (var sw = File.AppendText(eventFile))    { sw.Write(""); }
+        using (var sw = File.AppendText(animalsFile))  { sw.Write(""); }
+        using (var sw = File.AppendText(buildingFile)) { sw.Write(""); }
+        using (var sw = File.AppendText(enemyFile))    { sw.Write(""); }
+
+        Events = File.ReadAllLines(eventFile);
+        Animals = File.ReadAllLines(animalsFile);
+        Buildings = File.ReadAllLines(buildingFile);
+        Enemies = File.ReadAllLines(enemyFile);
+
+        Climate = ClimateData.Get(climate);
+        Cached.Add(name, this);
     }
-
+  
 }
-
-

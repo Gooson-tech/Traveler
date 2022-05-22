@@ -1,8 +1,7 @@
 ﻿#region Using Statements
 
 using System;
-using DndApp;
-
+using System.Threading;
 
 #if MONOMAC
 using MonoMac.AppKit;
@@ -25,9 +24,10 @@ namespace DndApp
 #endif
     {
         private static Game1 _game;
-
+      
         internal static void RunGame()
         {
+          
             _game = new Game1();
             _game.Run();
 #if !__IOS__ && !__TVOS__

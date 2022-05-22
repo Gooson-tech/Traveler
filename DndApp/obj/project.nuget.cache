@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "U1w9TAD9TOe4SUNwgIX/1wMT6FEAOLW/5jeXS7rIpPTuaE2bbMEV70wklIm4yAzUs4m1xgT7qVzDNCPXVsMHDQ==",
+  "dgSpecHash": "VcdddeZ4iGG5Wf0i/JKCKilkleEsy+PpMYdT3HNkvVp+7wFq3huW1fG6vpqyOmNEyil3AI334zAMYeamLVCzJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\DndApp.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\graym\\.nuget\\packages\\cyotek.drawing.bitmapfont\\2.0.1\\cyotek.drawing.bitmapfont.2.0.1.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\fontstashsharp.monogame\\1.0.0\\fontstashsharp.monogame.1.0.0.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\info.lundin.math.dll\\1.2.6\\info.lundin.math.dll.1.2.6.nupkg.sha512",
+    "C:\\Users\\graym\\.nuget\\packages\\meziantou.analyzer\\1.0.702\\meziantou.analyzer.1.0.702.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

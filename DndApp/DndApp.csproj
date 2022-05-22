@@ -18,6 +18,9 @@
 		<None Remove="Icon.bmp" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Include="Work\Main\images\Forrest1.jpg" />
+	</ItemGroup>
+	<ItemGroup>
 		<EmbeddedResource Include="Icon.ico" />
 		<EmbeddedResource Include="Icon.bmp" />
 		<EmbeddedResource Update="Code\StringTest.resx">
@@ -30,13 +33,14 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-		<MonoGameContentReference Include="Content\Content.mgcb" />
-	</ItemGroup>
-	<ItemGroup>
 		<TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="ChaiFoxes.FMODAudio.Desktop" Version="2.0.0" />
+		<PackageReference Include="Meziantou.Analyzer" Version="1.0.702">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -74,5 +78,13 @@
 			<AutoGen>True</AutoGen>
 			<DependentUpon>StringTest.resx</DependentUpon>
 		</Compile>
+		<Compile Update="StringTest.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>StringTest.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Work\Documentation\" />
 	</ItemGroup>
 </Project>
