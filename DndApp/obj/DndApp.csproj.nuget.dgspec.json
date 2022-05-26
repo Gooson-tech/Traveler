@@ -116,19 +116,19 @@
             },
             "Qml.Net": {
               "target": "Package",
-              "version": "[0.12.0-alpha.3, )"
+              "version": "[0.11.0, )"
             },
             "Qml.Net.LinuxBinaries": {
               "target": "Package",
-              "version": "[0.12.0-alpha.3, )"
+              "version": "[0.11.0, )"
             },
             "Qml.Net.OSXBinaries": {
               "target": "Package",
-              "version": "[0.12.0-alpha.3, )"
+              "version": "[0.11.0, )"
             },
             "Qml.Net.WindowsBinaries": {
               "target": "Package",
-              "version": "[0.12.0-alpha.3, )"
+              "version": "[0.11.0, )"
             },
             "SliceAndDice": {
               "target": "Package",

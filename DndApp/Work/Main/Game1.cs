@@ -1,24 +1,24 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
 using Nez;
 using Nez.Sprites;
-using System.Runtime.CompilerServices;
+using DndApp.Annotations;
 using Myra;
 namespace DndApp;
 
 
 
 
-public partial class Game1 : Core
+public sealed class Game1 : Core
 {
 
     private Party _party;
-    private static UserActions _userActions;
+    private UserActions _userActions;
     Desktop _desktop;
 
     public Game1() => Content.RootDirectory= string.Format(ProjectSourcePath.Value)+@"\Content\";
-
     protected override void Initialize()
     {
         base.Initialize();
@@ -79,18 +79,15 @@ public partial class Game1 : Core
     }
     private static void ScheduledTasks() { /* Schedule(1, true, date.GetTimeIndex());*/}
 }
-public partial class Game1
+public static class ProjectSourcePath
 {
-
-}
-internal static class ProjectSourcePath
-{
-    private const string myRelativePath = nameof(ProjectSourcePath) + ".cs";
-    private static string? lazyValue;
-    public static string @Value => lazyValue ??= CalculatePath();
-    private static string CalculatePath() {
+    private const string MyRelativePath = nameof(ProjectSourcePath) + ".cs";
+    private static string? _lazyValue;
+    public static string @Value => _lazyValue ??= CalculatePath();
+    private static string CalculatePath()
+    {
         string pathName = GetSourceFilePathName();
-        return pathName.Substring(0, pathName.Length - myRelativePath.Length + 1);
+        return pathName.Substring(0, pathName.Length - MyRelativePath.Length + 1);
     }
     private static string @GetSourceFilePathName([CallerFilePath] string? callerFilePath = null) => @callerFilePath ?? @"";
 }

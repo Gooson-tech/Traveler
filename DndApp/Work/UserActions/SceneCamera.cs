@@ -9,8 +9,6 @@ public static class SceneCamera
     public static void SetCamera(Camera camera)=> _camera = camera;
     public static void Center()=>Core.Scene.Camera.SetPosition(new Vector2(0, 0));
     public static void CameraFollow(Entity move) {}
-    private static int _previousScrollWheelValue=0;
-
     public static void SetUp(Camera camera)
     {
         _camera= camera;
@@ -18,6 +16,7 @@ public static class SceneCamera
         _camera.SetMinimumZoom(.1f);
         _camera.SetMaximumZoom(100);
     }
+    private static int _previousScrollWheelValue = 0;
     public static void CameraZoom(int scrollWheelValue)
     {
         if (scrollWheelValue < _previousScrollWheelValue)
@@ -34,11 +33,8 @@ public static class SceneCamera
             else
                 _camera.RawZoom += .06f;
         }
-
         _previousScrollWheelValue = scrollWheelValue;
     }
-
-
     public static void SwapCameras(int camNum1, int camNum2, bool sceneCamEnabled) {
         _camera.SetEnabled(sceneCamEnabled);
         _camera.Entity.GetComponents<FollowCamera>()[camNum1].SetEnabled(isEnabled: true);

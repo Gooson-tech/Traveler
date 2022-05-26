@@ -24,10 +24,10 @@
           "MonoGame.Framework.DesktopGL": "3.8.0.1641",
           "Myra": "1.3.1",
           "Nez": "1.0.0",
-          "Qml.Net": "0.12.0-alpha.3",
-          "Qml.Net.LinuxBinaries": "0.12.0-alpha.3",
-          "Qml.Net.OSXBinaries": "0.12.0-alpha.3",
-          "Qml.Net.WindowsBinaries": "0.12.0-alpha.3",
+          "Qml.Net": "0.11.0",
+          "Qml.Net.LinuxBinaries": "0.11.0",
+          "Qml.Net.OSXBinaries": "0.11.0",
+          "Qml.Net.WindowsBinaries": "0.11.0",
           "SliceAndDice": "1.0.0",
           "TinyCsvParser": "2.6.1"
         },
@@ -279,7 +279,7 @@
           }
         }
       },
-      "Qml.Net/0.12.0-alpha.3": {
+      "Qml.Net/0.11.0": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
           "NetNativeLibLoader": "0.1.1",
@@ -288,14 +288,14 @@
         },
         "runtime": {
           "lib/netstandard2.1/Qml.Net.dll": {
-            "assemblyVersion": "0.12.0.0",
-            "fileVersion": "0.12.0.0"
+            "assemblyVersion": "0.11.0.0",
+            "fileVersion": "0.11.0.0"
           }
         }
       },
-      "Qml.Net.LinuxBinaries/0.12.0-alpha.3": {
+      "Qml.Net.LinuxBinaries/0.11.0": {
         "dependencies": {
-          "Qml.Net": "0.12.0-alpha.3"
+          "Qml.Net": "0.11.0"
         },
         "runtimeTargets": {
           "runtimes/linux-x64/native/libQmlNet.so": {
@@ -305,9 +305,9 @@
           }
         }
       },
-      "Qml.Net.OSXBinaries/0.12.0-alpha.3": {
+      "Qml.Net.OSXBinaries/0.11.0": {
         "dependencies": {
-          "Qml.Net": "0.12.0-alpha.3"
+          "Qml.Net": "0.11.0"
         },
         "runtimeTargets": {
           "runtimes/osx-x64/native/libQmlNet.dylib": {
@@ -317,9 +317,9 @@
           }
         }
       },
-      "Qml.Net.WindowsBinaries/0.12.0-alpha.3": {
+      "Qml.Net.WindowsBinaries/0.11.0": {
         "dependencies": {
-          "Qml.Net": "0.12.0-alpha.3"
+          "Qml.Net": "0.11.0"
         },
         "runtimeTargets": {
           "runtimes/win-x64/native/QmlNet.dll": {
@@ -655,33 +655,33 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
-    "Qml.Net/0.12.0-alpha.3": {
+    "Qml.Net/0.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8+5LobCcgsiwFj7JpyUbV0J6KMKHgq/Zt5eFCfBkA0lyBe3TG0pr37/JNSu6VAUwsWUVlkhvc61M8lA1X/Zv5A==",
-      "path": "qml.net/0.12.0-alpha.3",
-      "hashPath": "qml.net.0.12.0-alpha.3.nupkg.sha512"
+      "sha512": "sha512-95zRXcb8hMMzHHKOT3a+qkqzXcKYQin6IF98xoImFuVnrKgjdYWYP/L27KdqFjS7DNtdja8b040MffHfHg2OLg==",
+      "path": "qml.net/0.11.0",
+      "hashPath": "qml.net.0.11.0.nupkg.sha512"
     },
-    "Qml.Net.LinuxBinaries/0.12.0-alpha.3": {
+    "Qml.Net.LinuxBinaries/0.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XCnbc1cT6KjuV+EgGKoXV1TisD0bwMPU7Bx1ZNPixuFM0RYi2vQBfvgLISzMVzNo8rNY51Xo/WcL8XGOGZmdMQ==",
-      "path": "qml.net.linuxbinaries/0.12.0-alpha.3",
-      "hashPath": "qml.net.linuxbinaries.0.12.0-alpha.3.nupkg.sha512"
+      "sha512": "sha512-T5SBS0dJr44duYKnfNH1c41l2hwSPpIwuQYg5RjIF4Vg70BK383CjTWjM09eISmjz++1lcB+OMBZKVMjS+hgVA==",
+      "path": "qml.net.linuxbinaries/0.11.0",
+      "hashPath": "qml.net.linuxbinaries.0.11.0.nupkg.sha512"
     },
-    "Qml.Net.OSXBinaries/0.12.0-alpha.3": {
+    "Qml.Net.OSXBinaries/0.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1xIvTO+JCzXbcWVJD0vkGtXK1HflHjlOfSTySqiaz7mOEGSfQR/ByTDdtryWg72PvmNa1lx/PevNFSQMYDpUUQ==",
-      "path": "qml.net.osxbinaries/0.12.0-alpha.3",
-      "hashPath": "qml.net.osxbinaries.0.12.0-alpha.3.nupkg.sha512"
+      "sha512": "sha512-JepekVzzLPP4Ub0yB2/MNOVzmlTukMgfTqW4fgvroFB/gbOwp6AZal7aAqer7xoTPpjg8/cteNnwoZhWxSbpiw==",
+      "path": "qml.net.osxbinaries/0.11.0",
+      "hashPath": "qml.net.osxbinaries.0.11.0.nupkg.sha512"
     },
-    "Qml.Net.WindowsBinaries/0.12.0-alpha.3": {
+    "Qml.Net.WindowsBinaries/0.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Qa0g9aX39u5LpVpJVCbzfBM9PLF7U9Fw2uZJ/X0AbZa42rQRiK84NZh0vtHM1nYsuXotAgB3MdzDqGmrqn6ajg==",
-      "path": "qml.net.windowsbinaries/0.12.0-alpha.3",
-      "hashPath": "qml.net.windowsbinaries.0.12.0-alpha.3.nupkg.sha512"
+      "sha512": "sha512-miWdqUw9J2zDLFm6d3rdPuZVvTtTDtIu1aNv60UniBW9HMk595hoSJlXT1CuhgiiLIHdAWxDangMek7P56QB/A==",
+      "path": "qml.net.windowsbinaries/0.11.0",
+      "hashPath": "qml.net.windowsbinaries.0.11.0.nupkg.sha512"
     },
     "SliceAndDice/1.0.0": {
       "type": "package",

@@ -48,11 +48,13 @@ public class UserActions
                 {
                     var climateDataIndex = 
                         Date.TimeIndex(_party.InsideBiome.Climate, _ui.Year!, _ui.Month!, _ui.Day!, _ui.Hour!);
-                    var climateNow = _party.InsideBiome.GetClimateAt(climateDataIndex);
-                    UIText.Weather= $"Name:{_party.InsideBiome.Name}\r\n" +
-                                    $"ClimateData:{climateNow}";
-                    /*UI.InformationBox.Text = $"Name:{_party.InsideBiome.Name}\r\n" +
-                                            $"ClimateData:{climateNow}";*/
+                    var climateNow = 
+                        _party.InsideBiome.GetClimateAt(climateDataIndex);
+                    UIText.Weather = 
+                        $"Name:{_party.InsideBiome.Name}\r\n" + $"ClimateData:{climateNow}";
+
+                    _ui.InformationBox.Text =
+                        $"Name:{_party.InsideBiome.Name}\r\n" + $"ClimateData:{climateNow}";
                 }
                 break;
             }

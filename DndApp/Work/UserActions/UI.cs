@@ -3,11 +3,6 @@ using Myra.Graphics2D;
 using Myra.Graphics2D.TextureAtlases;
 using Myra.Graphics2D.UI;
 using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Dynamic;
-using System.Linq;
-using System.Reflection;
-using FMOD;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.Brushes;
 using Myra.Graphics2D.UI.ColorPicker;
@@ -18,22 +13,34 @@ public class UI
 {
 	private  string _biomeName="";
 	private  string _lastUsedBiomeName;
-    private  MyColorPicker _colorPicker= new();
-    public  string BiomeName { get => _biomeName; private set { _lastUsedBiomeName = _biomeName; _biomeName = value; } }
+	private  MyColorPicker _colorPicker= new();
+	private TextBox _informationBox;
+	public  string BiomeName { get => _biomeName; private set { _lastUsedBiomeName = _biomeName; _biomeName = value; } }
 	public  int SplotchSize { get; private set; } = 32;
 	private  bool TimeContinue { get; set; }
-	private  bool TimeSetChanged { get; set; }
 	public  bool OnTop { get; private set; }
 	public enum SelectedPaint { None, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour, ChoiceFive, ChoiceSix, }
-	public static IEnumerable<string> Months { get; } = new[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", };
-	public  int Month { get; set; } = 1;
-	public  int Year { get; set; } = 1;
-	public  int Day { get; set; } = 1;
-	public  int Hour { get; set; } = 0;
-	public  TextBox InformationBox { get; set; }
-	public  Climate SelectedClimate { get; set; } = Climate.Grassland;
-    public Mode SelectedMode { get; set; } = Mode.TravelToClicked;
-    public Color UseColor { get; set; }
+	public static IEnumerable<string> Months { get; } = new[]
+	{
+		"January", "February", "March",
+		"April", "May", "June", "July",
+		"August", "September", "October", 
+		"November", "December",
+	};
+	public  int Month { get;  } = 1;
+	public  int Year { get;  } = 1;
+	public  int Day { get;  } = 1;
+	public  int Hour { get; } = 0;
+
+	public TextBox InformationBox
+	{
+		get => _informationBox;
+		set => _informationBox = value;
+	}
+
+	public  Climate SelectedClimate { get; } = Climate.Grassland;
+	public Mode SelectedMode { get; set; } = Mode.TravelToClicked;
+	public Color UseColor { get; set; }
 
 	public UI(Desktop desktop) { 
 		Grid RootGrid = new() { RowSpacing = 8, ColumnSpacing = 8 };
@@ -45,16 +52,29 @@ public class UI
 		{
 			Renderable = MyraEnvironment.DefaultAssetManager.Load<TextureRegion>(FileLocations.LocationImages1)
 		};
-		var _window1 = new Window1(image1);
-		_window1.Content.TouchDoubleClick += (s, a) => {
-			_window1.Visible = false;
-			var myQml = new MyQml(_window1);
+         _informationBox = new TextBox
+        {
+            VerticalAlignment = VerticalAlignment.Top,
+            HorizontalAlignment = HorizontalAlignment.Left,
+            Readonly = true,
+            Text = "EMPTY",
+            Multiline = true,
+            Visible = true,
+        };
+		var window1 = new Window1(image1,_informationBox);
+		window1.Content.TouchDoubleClick += (s, a) => {
+			window1.Visible = false;
+			var myQml = new ImageOnlyQml(window1);
 		};
+		
+
+
+	
 
 		var presentedColorSquare = new ImageButton
 		{
-            Tag = Mode.Paint,
-            Visible = false,
+			Tag = Mode.Paint,
+			Visible = false,
 			Left = -19,
 			Top = 0,
 			MinWidth = 100,
@@ -65,20 +85,13 @@ public class UI
 			ContentVerticalAlignment = VerticalAlignment.Top,
 			Margin = new Thickness(0, 0, -11, 0),
 		};
-		presentedColorSquare.TouchDown += (s, a) => _colorPicker.Visible=true;
-        UseColor = _colorPicker.UseColor;
+		presentedColorSquare.TouchDown += (s, a) =>
+		{
+			_colorPicker.Set(this, ref presentedColorSquare);
+			_colorPicker.ShowModal(desktop);
+		};
 
-
-		/*var textB1 = new TextButton { HorizontalAlignment = HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Top, Text = "Biome1", };
-		textB1.TouchDown += (s, a) => { 
-			CurrentPaint = SelectedPaint.ChoiceOne;
-			BiomeName = "Biome1";
-			var background = (SolidBrush)presentedColorSquare.Background;
-			var boxColor = background.Color;
-			UseColor = boxColor;
-		};*/
-
-		TextBox textbox = new TextBox
+		MyTextBox textbox = new MyTextBox
 		{
 			Tag = Mode.Paint,
 			Left = 0,
@@ -96,35 +109,35 @@ public class UI
 		};
 		textbox.MouseLeft += (s, a) =>
 		{
-			if (textbox.Text != null) BiomeName = textbox.Text.ToLower();
+			if (textbox.Text != null)
+				BiomeName = textbox.Text.ToLower();
 		};
 
 		var painterModeButton = new TextButton { Text = "World Paint", Toggleable = false, };
 		painterModeButton.TouchDown += (s, a) =>
-        {
+		{
 			//toggles other buttons if on
-            if (!painterModeButton.IsPressed)
-            {
-                SelectedModeSet(Mode.Paint);
-            }
+			if (!painterModeButton.IsPressed)
+			{
+				SelectedModeSet(Mode.Paint);
+			}
 		};	
-        var travelButton = new TextButton { Text = "Travel", Toggleable = false, };
-        travelButton.TouchDown += (s, a) =>
-        {
+		var travelButton = new TextButton { Text = "Travel", Toggleable = false, };
+		travelButton.TouchDown += (s, a) =>
+		{
 			//toggles other buttons if on
-            if (!travelButton.IsPressed)
-            {
-                SelectedModeSet(Mode.TravelToClicked);
-
+			if (!travelButton.IsPressed)
+			{
+				SelectedModeSet(Mode.TravelToClicked);
 			}
 
 		};
 
-		desktop.Widgets.Add(_colorPicker);
+		//RootGrid.Widgets.Add(_colorPicker);
 
-        RootGrid.Widgets.Add(_window1);
-		_window1.MouseEntered += (s, a) => OnTop = true;
-		_window1.MouseLeft += (s, a) => OnTop = false;
+		RootGrid.Widgets.Add(window1);
+		window1.MouseEntered += (s, a) => OnTop = true;
+		window1.MouseLeft += (s, a) => OnTop = false;
 
 		RootGrid.Widgets.Add(painterModeButton);
 		painterModeButton.MouseEntered += (s, a) => OnTop = true;
@@ -137,114 +150,113 @@ public class UI
 		RootGrid.Widgets.Add(textbox);
 		textbox.MouseEntered += (s, a) => OnTop = true;
 		textbox.MouseLeft += (s, a) => OnTop = false;	
-        
-        RootGrid.Widgets.Add(travelButton);
-        travelButton.MouseEntered += (s, a) => OnTop = true;
-        travelButton.MouseLeft += (s, a) => OnTop = false;
+		
+		RootGrid.Widgets.Add(travelButton);
+		travelButton.MouseEntered += (s, a) => OnTop = true;
+		travelButton.MouseLeft += (s, a) => OnTop = false;
 
-         void SelectedModeSet(Mode mode)
-        {
-            if (mode == Mode.TravelToClicked)
-            {
-                _window1.Visible=true;
-                presentedColorSquare.Visible = false;
-                textbox.Visible = false;
-            } 
-            else 
-            {
-                _window1.Visible = false;
-                presentedColorSquare.Visible = true;
-                textbox.Visible = true;
+        /*RootGrid.Widgets.Add(_informationBox);
+        _informationBox.MouseEntered += (s, a) => OnTop = true;
+        _informationBox.MouseLeft += (s, a) => OnTop = false;*/
 
-            }
-            SelectedMode = mode;
+		void SelectedModeSet(Mode mode)
+		{
+			if (mode == Mode.TravelToClicked)
+			{
+				window1.Visible=true;
+				presentedColorSquare.Visible = false;
+				textbox.Visible = false;
+			} 
+			else 
+			{
+				window1.Visible = false;
+				presentedColorSquare.Visible = true;
+				textbox.Visible = true;
+
+			}
+			SelectedMode = mode;
 		}
 
 	}
 
-
-
-    public enum Mode
+	public enum Mode
 	{
 		None,
 		Paint,
 		TravelToClicked
 	}
-	/*
-	private ColorPickerDialog MyColorPicker(ref ImageButton presentedColorSquare, SelectedPaint selectedPaint, string biomeName)
-	{
-		var background = (SolidBrush)presentedColorSquare.Background;
-		var boxColor = background.Color;
-		ColorPickerDialog colorPickerDialog = new();
-
-		var square = presentedColorSquare;
-		colorPickerDialog.ButtonCancel.PressedChanged += (s, a) => colorPickerDialog.Color = boxColor;
-		colorPickerDialog.ButtonOk.PressedChanged += (s, a) => { square.Background = new SolidBrush(colorPickerDialog.Color); };
-		colorPickerDialog.CloseButton.PressedChanged += (s, a) => colorPickerDialog.Color = boxColor;
-		colorPickerDialog.MouseEntered += (s, a) => OnTop = true;
-		colorPickerDialog.MouseLeft += (s, a) => OnTop = false;
-		colorPickerDialog.Color = boxColor;
-
-
-		BiomeName = biomeName;
-		UseColor = boxColor;
-
-		return colorPickerDialog;
-	}
-*/
 }
 
-public sealed class MyColorPicker : ColorPickerDialog
+public class MyTextBox : TextBox
 {
-    public Color UseColor { get; set; } = Color.Red;
+	public override void OnChar(char c)
+	{
+		base.OnChar(c);
+	}
+}
 
-	/*public void set(ref ImageButton presentedColorSquare)
-    {
-         
-         //_background = (SolidBrush)presentedColorSquare.Background;
+public class MyColorPicker : ColorPickerDialog
+{
+	public Color UseColor { get; private set; } = Color.Red;
+	protected override void OnOk()
+	{
+		base.OnOk();
+	}
+	protected override bool CanCloseByOk()=>true;
 
-        this.ButtonOk.PressedChanged += (s, a) =>
-        {
-            presentedColorSquare.Background = new SolidBrush(this.Color);
-            UseColor = this.Color;
-        };
-        this.ButtonCancel.PressedChanged += (s, a) => this.Color = _background.Color;
-        this.CloseButton.PressedChanged += (s, a) => this.Color = _background.Color;
-        
+	public void Set( UI ui, ref ImageButton presentedColorSquare)
+	{
+		var background = (SolidBrush)presentedColorSquare.Background;
 
-	}*/
+		var square = presentedColorSquare;
+		this.ButtonOk.PressedChanged += (s, a) =>
+		{
+			square.Background = new SolidBrush(this.Color);
+			ui.UseColor = this.Color;
+		};
+		this.ButtonCancel.PressedChanged += (s, a) => this.Color = background.Color;
+		this.CloseButton.PressedChanged += (s, a) => this.Color = background.Color;
+	}
 
-    public MyColorPicker()
-    {
-        this.Visible = false;
-    }
+	public override void Close()
+	{
+		base.Close();
+	}
+
+	public MyColorPicker()
+	{
+	}
+	
 }
 
 public sealed class Window1 : Window 
 {
-	public Window1(Image image1):base()
-    { 
-        var xDivide = 1; var yDivide = 1; 
-        if (image1.Renderable.Size.X > 1000) 
-            xDivide = 4;
-		if (image1.Renderable.Size.Y > 1000)
-            yDivide = 4;
 
-        Tag = UI.Mode.TravelToClicked;
-        Title = "Biomes";
+	public Window1(Image image1, Widget informationBox):base()
+	{
+		var xDivide = 1; var yDivide = 1; 
+		if (image1.Renderable.Size.X > 1000) 
+			xDivide = 4;
+		if (image1.Renderable.Size.Y > 1000)
+			yDivide = 4;
+
+		Tag = UI.Mode.TravelToClicked;
+		Title = "Biomes";
 		Left = 0; this.Top = 0;
-		Content = image1;
 		IsModal = false;
 		Visible = false;
 		MinWidth = 100; this.MinHeight = 100;
 		MaxWidth = image1.Renderable.Size.X / xDivide;
 		MaxHeight = image1.Renderable.Size.Y / yDivide;
 		Background = new SolidBrush("#363636FF");
-		Border = new SolidBrush("#5BC6FAFF"); 
-        
+		Border = new SolidBrush("#5BC6FAFF");
+		Grid RootGrid2 = new() { RowSpacing = 0, ColumnSpacing = 0 };
+        RootGrid2.Widgets.Add(image1);
+        RootGrid2.Widgets.Add(informationBox);
+        Content = RootGrid2;
 		//image scale scrolling
-        this.Content.MouseMoved += (s, a) => { 
-            var scrollValue = Input.MouseWheelDelta / 12;
+		this.Content.MouseMoved += (s, a) => { 
+			var scrollValue = Input.MouseWheelDelta / 12;
 			if (scrollValue == 0) return;
 			this.MaxWidth += scrollValue; this.MaxHeight += scrollValue;
 			this.Width += scrollValue; this.Height += scrollValue;

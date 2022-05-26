@@ -15,9 +15,9 @@ namespace DndApp;
 
 public class PaintActions
 {
-    private static float _allowedDistance = 20f;
+    private const float AllowedDistance = 20f;
     private Entity _eraser;
-    private static Vector2 _lastPos;
+    private Vector2 _lastPos;
 
     public PaintActions(Scene scene)
     {
@@ -33,7 +33,7 @@ public class PaintActions
         if (!PaintButtonDown) return;
 
         //for slight optimization 
-        if (Vector2.Distance(locationAt, _lastPos) < _allowedDistance)
+        if (Vector2.Distance(locationAt, _lastPos) < AllowedDistance)
             return;
 
         var splotch = new Splotch(color, size);

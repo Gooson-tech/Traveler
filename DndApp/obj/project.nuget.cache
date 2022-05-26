@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VcdddeZ4iGG5Wf0i/JKCKilkleEsy+PpMYdT3HNkvVp+7wFq3huW1fG6vpqyOmNEyil3AI334zAMYeamLVCzJg==",
+  "dgSpecHash": "ZIOsj2PAb7vmGwRhRkpj7DWbZuANrBMuXIY+eD32SiJVaCsdsovSX6W5vWbi+uT0RA21Tm3nVLiksvBoEIp5oQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\graym\\Documents\\GitHub\\Traveler\\DndApp\\DndApp.csproj",
   "expectedPackageFiles": [
@@ -30,10 +30,10 @@
     "C:\\Users\\graym\\.nuget\\packages\\myra\\1.3.1\\myra.1.3.1.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\netnativelibloader\\0.1.1\\netnativelibloader.0.1.1.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\graym\\.nuget\\packages\\qml.net\\0.12.0-alpha.3\\qml.net.0.12.0-alpha.3.nupkg.sha512",
-    "C:\\Users\\graym\\.nuget\\packages\\qml.net.linuxbinaries\\0.12.0-alpha.3\\qml.net.linuxbinaries.0.12.0-alpha.3.nupkg.sha512",
-    "C:\\Users\\graym\\.nuget\\packages\\qml.net.osxbinaries\\0.12.0-alpha.3\\qml.net.osxbinaries.0.12.0-alpha.3.nupkg.sha512",
-    "C:\\Users\\graym\\.nuget\\packages\\qml.net.windowsbinaries\\0.12.0-alpha.3\\qml.net.windowsbinaries.0.12.0-alpha.3.nupkg.sha512",
+    "C:\\Users\\graym\\.nuget\\packages\\qml.net\\0.11.0\\qml.net.0.11.0.nupkg.sha512",
+    "C:\\Users\\graym\\.nuget\\packages\\qml.net.linuxbinaries\\0.11.0\\qml.net.linuxbinaries.0.11.0.nupkg.sha512",
+    "C:\\Users\\graym\\.nuget\\packages\\qml.net.osxbinaries\\0.11.0\\qml.net.osxbinaries.0.11.0.nupkg.sha512",
+    "C:\\Users\\graym\\.nuget\\packages\\qml.net.windowsbinaries\\0.11.0\\qml.net.windowsbinaries.0.11.0.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\sliceanddice\\1.0.0\\sliceanddice.1.0.0.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\stbimagesharp\\2.22.6\\stbimagesharp.2.22.6.nupkg.sha512",
     "C:\\Users\\graym\\.nuget\\packages\\stbtruetypesharp\\1.24.8\\stbtruetypesharp.1.24.8.nupkg.sha512",

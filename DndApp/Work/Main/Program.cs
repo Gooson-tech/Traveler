@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading;
+using Qml.Net.Runtimes;
 
 #if MONOMAC
 using MonoMac.AppKit;
@@ -20,18 +21,17 @@ namespace DndApp
     [Register("AppDelegate")]
     class Program : UIApplicationDelegate
 #else
-    static class Program
+    internal static class Program
 #endif
     {
-        private static Game1 _game;
-      
-        internal static void RunGame()
+        private static void RunGame()
         {
-          
-            _game = new Game1();
-            _game.Run();
+            //StartScreen.StartSTheScreen();
+
+            var game = new Game1();
+            game.Run();
 #if !__IOS__ && !__TVOS__
-            _game.Dispose();
+            game.Dispose();
 #endif
         }
 
@@ -53,6 +53,8 @@ namespace DndApp
 #elif __IOS__ || __TVOS__
             UIApplication.Main(args, null, "AppDelegate");
 #else
+            RuntimeManager.DiscoverOrDownloadSuitableQtRuntime();
+
             RunGame();
 
 #endif

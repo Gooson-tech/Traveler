@@ -11,7 +11,7 @@ public class Splotch : Entity
     private static int _numCount;
     private static int _lastRenderLayer;
     public int RenderLayer { get; }
-    private static Sprite sprite = new (CreateCircleTexture(150, Color.White));
+    private static readonly Sprite sprite = new (CreateCircleTexture(150, Color.White));
     public Splotch(Color color, int radius = 32)
     {
         Name = "splotch#" + _numCount++;

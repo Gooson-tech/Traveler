@@ -1,3 +1,10 @@
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.AssemblyReference.cache
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.StringTest.resources
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.GenerateResource.cache
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.AssemblyInfoInputs.cache
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.AssemblyInfo.cs
+C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.CoreCompileInputs.cache
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\DndApp.exe
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\DndApp.deps.json
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\DndApp.runtimeconfig.json
@@ -43,13 +50,6 @@ C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\runtimes\unix\l
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\Nez.dll
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\bin\Debug\net6.0\Nez.pdb
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.AssemblyReference.cache
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.StringTest.resources
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.GenerateResource.cache
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.AssemblyInfoInputs.cache
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.AssemblyInfo.cs
-C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.CoreCompileInputs.cache
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.csproj.CopyComplete
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\DndApp.dll
 C:\Users\graym\Documents\GitHub\Traveler\DndApp\obj\Debug\net6.0\refint\DndApp.dll
