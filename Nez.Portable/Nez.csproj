@@ -38,19 +38,8 @@
 	</ItemGroup>
   
 	<ItemGroup>
-		<PackageReference Include="MonoGame.Extended" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Animations" Version="3.7.0" />
-		<PackageReference Include="MonoGame.Extended.Collisions" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Graphics" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Input" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Tiled" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Tweening" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Forms.DX" Version="2.4.0" />
-		<PackageReference Include="SliceAndDice" Version="1.0.0" />
 		<PackageReference Include="System.Drawing.Common" Version="5.0.2" />
 		<PackageReference Include="MonoGame.Framework.Portable" Version="3.7.1.189" PrivateAssets="all" />
-		<PackageReference Include="TinyCsvParser" Version="2.6.1" />
 	</ItemGroup>
   
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />

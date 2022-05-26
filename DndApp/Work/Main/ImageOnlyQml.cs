@@ -25,12 +25,9 @@ public class ImageOnlyQml
     {
 
 
-        Debug.Log("GetEnvironmentVariables: ");
-        foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-            Debug.Log("  {0} = {1}", de.Key, de.Value);
+        RuntimeManager.DiscoverOrDownloadSuitableQtRuntime();
 
-
-       using var app = new QGuiApplication();
+        using var app = new QGuiApplication();
        using var engine = new QQmlApplicationEngine();
        // Register our new type to be used in Qml
        Qml.Net.Qml.RegisterType<UIText>("test", 1, 1);

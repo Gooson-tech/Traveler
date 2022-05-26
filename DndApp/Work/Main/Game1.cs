@@ -35,7 +35,7 @@ public sealed class Game1 : Core
         Screen.SetSize(mapTexture.Width, mapTexture.Height);
         ScheduledTasks();
         LoadContent();
-        PaintActions paintActions = new PaintActions(Scene);
+        var paintActions = new PaintActions(Scene);
         _userActions = new UserActions(Scene, _party, paintActions, ui);
     }
     private void StartingProgramSettings()
@@ -87,7 +87,7 @@ public static class ProjectSourcePath
     private static string CalculatePath()
     {
         string pathName = GetSourceFilePathName();
-        return pathName.Substring(0, pathName.Length - MyRelativePath.Length + 1);
+        return pathName[..(pathName.Length - MyRelativePath.Length + 1)];
     }
     private static string @GetSourceFilePathName([CallerFilePath] string? callerFilePath = null) => @callerFilePath ?? @"";
 }

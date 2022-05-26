@@ -12,7 +12,7 @@ namespace DndApp
     [Signal("customSignal", NetVariantType.Bool)] // You can define signals that Qml can listen to.
     public class qqqqqTest
     {
-        public void ActivateCustomSignal(string message)
+        public static void ActivateCustomSignal(string message)
         {
             StartScreen2.StartThreaded();
         }

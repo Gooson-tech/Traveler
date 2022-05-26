@@ -4,7 +4,7 @@ namespace DndApp;
 
 public static class FileLocations
 {
-    private static string Root = Path.GetFullPath(Path.Combine(ContentFolder, @"..\"));
+    private static readonly string Root = Path.GetFullPath(Path.Combine(ContentFolder, @"..\"));
     private static string ContentFolder => Nez.Core.Content.RootDirectory;
     private static string AssetFiles=> ContentFolder + @"Assets\";
     private static string SpriteFiles=> AssetFiles + @"Sprites\";

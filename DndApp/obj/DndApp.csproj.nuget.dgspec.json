@@ -50,10 +50,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "ChaiFoxes.FMODAudio.Desktop": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
             "Meziantou.Analyzer": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -70,49 +66,13 @@
               "target": "Package",
               "version": "[3.8.0.1641, )"
             },
-            "MonoGame.Extended": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Animations": {
-              "target": "Package",
-              "version": "[3.7.0, )"
-            },
-            "MonoGame.Extended.Collisions": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Content.Pipeline": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Graphics": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Input": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Tiled": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Tweening": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Forms.DX": {
-              "target": "Package",
-              "version": "[2.4.0, )"
-            },
             "MonoGame.Framework.DesktopGL": {
               "target": "Package",
               "version": "[3.8.0.1641, )"
             },
             "Myra": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.4.0, )"
             },
             "Qml.Net": {
               "target": "Package",
@@ -129,14 +89,6 @@
             "Qml.Net.WindowsBinaries": {
               "target": "Package",
               "version": "[0.11.0, )"
-            },
-            "SliceAndDice": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
-            "TinyCsvParser": {
-              "target": "Package",
-              "version": "[2.6.1, )"
             }
           },
           "imports": [
@@ -200,58 +152,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "MonoGame.Extended": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Animations": {
-              "target": "Package",
-              "version": "[3.7.0, )"
-            },
-            "MonoGame.Extended.Collisions": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Content.Pipeline": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Graphics": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Input": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Tiled": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Tweening": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Forms.DX": {
-              "target": "Package",
-              "version": "[2.4.0, )"
-            },
             "MonoGame.Framework.Portable": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.7.1.189, )"
             },
-            "SliceAndDice": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[5.0.2, )"
-            },
-            "TinyCsvParser": {
-              "target": "Package",
-              "version": "[2.6.1, )"
             }
           },
           "imports": [

@@ -53,7 +53,6 @@ namespace DndApp
 #elif __IOS__ || __TVOS__
             UIApplication.Main(args, null, "AppDelegate");
 #else
-            RuntimeManager.DiscoverOrDownloadSuitableQtRuntime();
 
             RunGame();
 

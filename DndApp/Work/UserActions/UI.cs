@@ -11,12 +11,11 @@ using Nez;
 namespace DndApp;
 public class UI
 {
-	private  string _biomeName="";
-	private  string _lastUsedBiomeName;
-	private  MyColorPicker _colorPicker= new();
+	//private  string _lastUsedBiomeName;
+	private readonly MyColorPicker _colorPicker= new();
 	private TextBox _informationBox;
-	public  string BiomeName { get => _biomeName; private set { _lastUsedBiomeName = _biomeName; _biomeName = value; } }
-	public  int SplotchSize { get; private set; } = 32;
+	public string BiomeName { get; private set; } = "";
+	public int SplotchSize { get; private set; } = 32;
 	private  bool TimeContinue { get; set; }
 	public  bool OnTop { get; private set; }
 	public enum SelectedPaint { None, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour, ChoiceFive, ChoiceSix, }
@@ -50,17 +49,17 @@ public class UI
 		//var grid1 = new Grid { ColumnSpacing = 10, RowSpacing = 1, };
 		var image1 = new Image
 		{
-			Renderable = MyraEnvironment.DefaultAssetManager.Load<TextureRegion>(FileLocations.LocationImages1)
+			Renderable = MyraEnvironment.DefaultAssetManager.Load<TextureRegion>(FileLocations.LocationImages1),
 		};
-         _informationBox = new TextBox
-        {
-            VerticalAlignment = VerticalAlignment.Top,
-            HorizontalAlignment = HorizontalAlignment.Left,
-            Readonly = true,
-            Text = "EMPTY",
-            Multiline = true,
-            Visible = true,
-        };
+		 _informationBox = new TextBox
+		{
+			VerticalAlignment = VerticalAlignment.Top,
+			HorizontalAlignment = HorizontalAlignment.Left,
+			Readonly = true,
+			Text = "EMPTY",
+			Multiline = true,
+			Visible = true,
+		};
 		var window1 = new Window1(image1,_informationBox);
 		window1.Content.TouchDoubleClick += (s, a) => {
 			window1.Visible = false;
@@ -91,7 +90,7 @@ public class UI
 			_colorPicker.ShowModal(desktop);
 		};
 
-		MyTextBox textbox = new MyTextBox
+		var textbox = new MyTextBox
 		{
 			Tag = Mode.Paint,
 			Left = 0,
@@ -155,9 +154,9 @@ public class UI
 		travelButton.MouseEntered += (s, a) => OnTop = true;
 		travelButton.MouseLeft += (s, a) => OnTop = false;
 
-        /*RootGrid.Widgets.Add(_informationBox);
-        _informationBox.MouseEntered += (s, a) => OnTop = true;
-        _informationBox.MouseLeft += (s, a) => OnTop = false;*/
+		/*RootGrid.Widgets.Add(_informationBox);
+		_informationBox.MouseEntered += (s, a) => OnTop = true;
+		_informationBox.MouseLeft += (s, a) => OnTop = false;*/
 
 		void SelectedModeSet(Mode mode)
 		{
@@ -251,9 +250,9 @@ public sealed class Window1 : Window
 		Background = new SolidBrush("#363636FF");
 		Border = new SolidBrush("#5BC6FAFF");
 		Grid RootGrid2 = new() { RowSpacing = 0, ColumnSpacing = 0 };
-        RootGrid2.Widgets.Add(image1);
-        RootGrid2.Widgets.Add(informationBox);
-        Content = RootGrid2;
+		RootGrid2.Widgets.Add(image1);
+		RootGrid2.Widgets.Add(informationBox);
+		Content = RootGrid2;
 		//image scale scrolling
 		this.Content.MouseMoved += (s, a) => { 
 			var scrollValue = Input.MouseWheelDelta / 12;
