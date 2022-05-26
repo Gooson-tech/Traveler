@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
 using Nez;
 using Nez.Sprites;
-using DndApp.Annotations;
 using Myra;
 namespace DndApp;
 

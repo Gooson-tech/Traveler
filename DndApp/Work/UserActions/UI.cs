@@ -177,7 +177,6 @@ public class UI
 		}
 
 	}
-
 	public enum Mode
 	{
 		None,

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Threading;
-using Nez;
+﻿using System.Threading;
 using Qml.Net;
 using Qml.Net.Runtimes;
 
