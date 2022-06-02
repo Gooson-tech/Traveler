@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<PublishReadyToRun>false</PublishReadyToRun>
+		<TieredCompilation>false</TieredCompilation>
+		<RootNamespace>Traveler</RootNamespace>
+		<LangVersion>latestmajor</LangVersion>
+		<Nullable>disable</Nullable>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>Icon.ico</ApplicationIcon>
+		<StartupObject>Traveler.Program</StartupObject>
+	</PropertyGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Icon.ico" />
+		<EmbeddedResource Include="Icon.bmp" />
+		<EmbeddedResource Update="Code\StringTest.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>StringTest.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="StringTest.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>StringTest.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+	</ItemGroup>
+	<ItemGroup>
+		
+		<PackageReference Include="Qml.Net" Version="0.11.0" />
+	<PackageReference Include="Qml.Net.LinuxBinaries" Version="0.11.0" />
+	<PackageReference Include="Qml.Net.OSXBinaries" Version="0.11.0" />
+	<PackageReference Include="Qml.Net.WindowsBinaries" Version="0.11.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Meziantou.Analyzer" Version="1.0.702">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+		<PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+		<PackageReference Include="Myra" Version="1.4.0" />
+
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Nez.Portable\Nez.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Code\StringTest.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>StringTest.resx</DependentUpon>
+		</Compile>
+		<Compile Update="StringTest.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>StringTest.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Work\Documentation\" />
+	</ItemGroup>
+</Project>
