@@ -3,6 +3,27 @@
 
 namespace Nez
 {
+	public enum Colorchannels
+	{
+		None,
+		All,
+		Red,
+		Green,
+		Blue
+	}
+
+
+	public enum WaveFunctions
+	{
+		Sin,
+		Triangle,
+		Square,
+		SawTooth,
+		IntertedSawTooth,
+		Random
+	}
+
+
 	/// <summary>
 	/// takes a RenderableComponent and cycles the color using different wave forms. A specific color channel can be affected or all of them.
 	/// Useful for making flickering lights and adding atmosphere.

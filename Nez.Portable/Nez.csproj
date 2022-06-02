@@ -1,11 +1,11 @@
 ﻿<Project>
 	<PropertyGroup>
-		<BaseIntermediateOutputPath>obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+		<BaseIntermediateOutputPath>obj\Nez</BaseIntermediateOutputPath>
 	</PropertyGroup>
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
-  
+
 	<Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
-  
+
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -17,32 +17,25 @@
 		<NoWarn>1591,1570,1572,1573</NoWarn>
 		<IntermediateOutputPath>obj\Nez\$(Configuration)</IntermediateOutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 	</PropertyGroup>
-  
+
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<OutputPath>bin\Debug\</OutputPath>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<OutputPath>bin\Release\</OutputPath>
 	</PropertyGroup>
-  
+
 	<ItemGroup>
 		<EmbeddedResource Include="Content\NezDefaultBMFont.xnb" />
 		<Compile Remove="Graphics\SVG\Shapes\Paths\SvgPathBuilder.cs" />
 	</ItemGroup>
-  
+
 	<ItemGroup>
-		<PackageReference Include="MonoGame.Extended" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Animations" Version="3.7.0" />
-		<PackageReference Include="MonoGame.Extended.Collisions" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Graphics" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Input" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Tiled" Version="3.8.0" />
-		<PackageReference Include="MonoGame.Extended.Tweening" Version="3.8.0" />
 		<PackageReference Include="System.Drawing.Common" Version="5.0.2" />
 		<PackageReference Include="MonoGame.Framework.Portable" Version="3.7.1.189" PrivateAssets="all" />
 	</ItemGroup>
-  
+
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
 </Project>

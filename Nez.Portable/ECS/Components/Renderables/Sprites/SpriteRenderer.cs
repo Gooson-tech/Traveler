@@ -110,7 +110,16 @@ namespace Nez.Sprites
 		{
 			_sprite = sprite;
 			if (_sprite != null)
-				_origin = _sprite.Origin;
+				SetOrigin(_sprite.Origin); // set origin with setting _areBoundsDirty
+			return this;
+		}
+
+		/// <summary>
+		/// sets the Texture by creating a new sprite. See SetSprite() for details.
+		/// </summary>
+		public SpriteRenderer SetTexture(Texture2D texture)
+		{
+			SetSprite(new Sprite(texture));
 			return this;
 		}
 

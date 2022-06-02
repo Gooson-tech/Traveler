@@ -4,6 +4,14 @@ using System.Collections;
 
 namespace Nez.Tweens
 {
+	public enum LoopType
+	{
+		None,
+		RestartFromBeginning,
+		PingPong
+	}
+
+
 	public abstract class Tween<T> : ITweenable, ITween<T> where T : struct
 	{
 		protected enum TweenState

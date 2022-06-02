@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Nez.BitmapFonts;
+using Microsoft.Xna.Framework;
 
 
 namespace Nez.UI
@@ -19,7 +20,7 @@ namespace Nez.UI
 			image = new Image();
 			image.SetScaling(Scaling.Fit);
 
-			label = new Label(text, style.Font, style.FontColor);
+			label = new Label(text, style.Font, style.FontColor, style.FontScaleX, style.FontScaleY);
 			label.SetAlignment(UI.Align.Center);
 
 			Add(image);
@@ -51,6 +52,8 @@ namespace Nez.UI
 				var labelStyle = label.GetStyle();
 				labelStyle.Font = style.Font;
 				labelStyle.FontColor = style.FontColor;
+				labelStyle.FontScaleX = style.FontScaleX;
+				labelStyle.FontScaleY = style.FontScaleY;
 				label.SetStyle(labelStyle);
 			}
 		}
@@ -137,6 +140,56 @@ namespace Nez.UI
 		public string GetText()
 		{
 			return label.GetText();
+		}
+	}
+
+
+	public class ImageTextButtonStyle : TextButtonStyle
+	{
+		/** Optional. */
+		public IDrawable ImageUp, ImageDown, ImageOver, ImageChecked, ImageCheckedOver, ImageDisabled;
+
+
+		public ImageTextButtonStyle()
+		{
+			Font = Graphics.Instance.BitmapFont;
+		}
+
+
+		public ImageTextButtonStyle(IDrawable up, IDrawable down, IDrawable over, BitmapFont font) : base(up, down,
+			over, font)
+		{
+		}
+
+
+		public new ImageTextButtonStyle Clone()
+		{
+			return new ImageTextButtonStyle
+			{
+				Up = Up,
+				Down = Down,
+				Over = Over,
+				Checked = Checked,
+				CheckedOver = CheckedOver,
+				Disabled = Disabled,
+
+				Font = Font,
+				FontColor = FontColor,
+				DownFontColor = DownFontColor,
+				OverFontColor = OverFontColor,
+				CheckedFontColor = CheckedFontColor,
+				CheckedOverFontColor = CheckedOverFontColor,
+				DisabledFontColor = DisabledFontColor,
+				FontScaleX = FontScaleX,
+				FontScaleY = FontScaleY,
+
+				ImageUp = ImageUp,
+				ImageDown = ImageDown,
+				ImageOver = ImageOver,
+				ImageChecked = ImageChecked,
+				ImageCheckedOver = ImageCheckedOver,
+				ImageDisabled = ImageDisabled
+			};
 		}
 	}
 }

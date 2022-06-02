@@ -1,9 +1,6 @@
 ﻿#region Using Statements
 
 using System;
-using Qml.Net;
-using Qml.Net.Runtimes;
-using Traveler;
 
 #if MONOMAC
 using MonoMac.AppKit;

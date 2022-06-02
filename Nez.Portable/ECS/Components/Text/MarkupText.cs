@@ -487,5 +487,83 @@ namespace Nez
 
 	#region Internal helpers
 
+	struct FormatInstruction
+	{
+		public readonly Color Color;
+		public readonly IFont Font;
+		public readonly Vector2 Scale;
+
+
+		public FormatInstruction(IFont font, Color color, Vector2 scale)
+		{
+			Font = font;
+			Color = color;
+			Scale = scale;
+		}
+	}
+
+
+	interface ICompiledElement
+	{
+		Vector2 Size { get; }
+		Vector2 Position { get; set; }
+		void Render(Batcher batcher, Vector2 offset);
+	}
+
+
+	struct CompiledTextElement : ICompiledElement
+	{
+		public Vector2 Position { get; set; }
+		public Vector2 Size { get; set; }
+
+		readonly FormatInstruction _formatInstruction;
+		readonly string _text;
+
+
+		public CompiledTextElement(string text, Vector2 position, FormatInstruction formatInstruction)
+		{
+			_text = text;
+			Position = position;
+			_formatInstruction = formatInstruction;
+			Size = formatInstruction.Font.MeasureString(text) * formatInstruction.Scale;
+		}
+
+
+		public void Render(Batcher batcher, Vector2 offset)
+		{
+			var origin = new Vector2(0, Size.Y / (2 * _formatInstruction.Scale.Y));
+			batcher.DrawString(_formatInstruction.Font, _text, offset + Position, _formatInstruction.Color, 0,
+				origin, _formatInstruction.Scale, SpriteEffects.None, 0);
+		}
+	}
+
+
+	struct CompiledImageElement : ICompiledElement
+	{
+		public Vector2 Position { get; set; }
+		public Vector2 Size { get; set; }
+
+		readonly Color _color;
+		readonly Texture2D _image;
+		readonly Vector2 _scale;
+
+
+		public CompiledImageElement(Texture2D image, Color color, Vector2 position, Vector2 scale)
+		{
+			_image = image;
+			Position = position;
+			_color = color;
+			_scale = scale;
+			Size = new Vector2(image.Width, image.Height) * scale;
+		}
+
+
+		public void Render(Batcher batcher, Vector2 offset)
+		{
+			var origin = new Vector2(0, _image.Height / 2f);
+			batcher.Draw(_image, offset + Position, null, _color, 0, origin, _scale, SpriteEffects.None, 0);
+		}
+	}
+
 	#endregion
 }

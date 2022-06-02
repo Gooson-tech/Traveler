@@ -44,7 +44,6 @@ namespace Nez
 		/// <param name="height">Height.</param>
 		public BoxCollider(float x, float y, float width, float height)
 		{
-			
 			_localOffset = new Vector2(x + width / 2, y + height / 2);
 			Shape = new Box(width, height);
 		}

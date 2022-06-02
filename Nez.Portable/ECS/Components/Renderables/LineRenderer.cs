@@ -6,6 +6,29 @@ using System.Runtime.CompilerServices;
 
 namespace Nez
 {
+	public enum EndCapType
+	{
+		/// <summary>
+		/// will not attempt to add any extra verts at joints
+		/// </summary>
+		Standard,
+
+		/// <summary>
+		/// all joints will be extruded out with an extra vert resulting in jagged, pointy joints
+		/// </summary>
+		Jagged,
+
+		/// <summary>
+		/// the same as jagged but uses cutoffAngleForEndCapSubdivision to decide if a joint should be Jagged or Standard
+		/// </summary>
+		JaggedWithCutoff,
+
+		/// <summary>
+		/// joints are smoothed with some extra geometry. Uses degreesPerSubdivision to decide how smooth to make each joint.
+		/// </summary>
+		Smooth
+	}
+
 	/// <summary>
 	/// Renders a trail behind a moving object
 	/// Adapted from http://www.paradeofrain.com/2010/01/28/update-on-continuous-2d-trails-in-xna/
@@ -807,6 +830,8 @@ namespace Nez
 		{
 			if (_points.Length < 2)
 				return;
+			
+			batcher.FlushBatch();
 
 			_basicEffect.Projection = camera.ProjectionMatrix;
 			_basicEffect.View = camera.TransformMatrix;

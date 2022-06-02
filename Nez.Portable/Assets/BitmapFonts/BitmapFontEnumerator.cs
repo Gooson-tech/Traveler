@@ -2,11 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Nez.BitmapFonts
 {
-	/// <summary>
+	public struct BitmapFontGlyph
+	{
+		public Vector2 Position;
+		public Character Character;
+		public Texture2D Texture;
+	}
+
+    /// <summary>
     /// returned by <seealso cref="BitmapFont.GetGlyphs"/>, providing a way to iterate over a string. Can be drawn with
     /// <seealso cref="BatcherBitmapFontExt"/> or by iterating and drawing each glyph.
     /// </summary>

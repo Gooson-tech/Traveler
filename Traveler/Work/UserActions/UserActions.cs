@@ -6,15 +6,8 @@ using static Traveler.MyraUI.Mode;
 using static Traveler.SceneCameraController;
 using static Microsoft.Xna.Framework.Input.Keys;
 using static Nez.Input;
-using static Nez.TweenExt;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Nez.PhysicsShapes;
-using Nez.Sprites;
-using Nez.Textures;
 
 namespace Traveler;
-
 public class UserActions
 {
     private readonly PaintActions _paintActions;

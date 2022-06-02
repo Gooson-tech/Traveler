@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
@@ -10,57 +9,38 @@ using Myra;
 namespace Traveler;
 public sealed class Game1 : Core
 {
-
-    private Party _party;
     private UserActions _userActions;
-    private Desktop _desktop;
-    private UI _ui;
-
+    private readonly Desktop _desktop = new();
     public Game1() => Content.RootDirectory= string.Format(ProjectSourcePath.Value)+@"\Content\";
     protected override void Initialize()
     {
-        base.Initialize();
         StartingProgramSettings();
-        MyraEnvironment.Game = Core.Instance;
-        Core.DefaultSamplerState= SamplerState.LinearClamp;
-        var mapTexture = Content.LoadTexture(FileLocations.Map);
+        base.Initialize();
         
-        _desktop = new Desktop();
-        _ui = new UI(_desktop);
+        var mapTexture = Content.LoadTexture(FileLocations.Map);
+        ScreenSetup(mapTexture);
+        SceneSetup(mapTexture);
 
-        //ui.QmlUI.Start( "Start.qml");
+        //Create Players Party
+        var party = new Party(FileLocations.Party, 20);
+        party.SetPosition(Vector2.Zero);
+        SceneCameraController.CameraFollow(Scene.Camera, party);
+        Scene.AddEntity(party);
 
-        // MyraUI.BuildUI();
+        MyraEnvironment.Game = Core.Instance;
+        var ui = new UI(_desktop);
 
-        int useWidth = 0, useHeight=0;
-        if (mapTexture.Width > Screen.MonitorWidth)
-            useWidth = Screen.MonitorWidth;
-        if (mapTexture.Height > Screen.MonitorHeight)
-            useHeight = Screen.MonitorHeight;
-        else
-        { 
-            useWidth = mapTexture.Width;
-            useHeight = mapTexture.Height;
-        }
-
-        SceneSetup(useWidth, useHeight, mapTexture);
-        Screen.SetSize(useWidth, useHeight);
+        _userActions = new UserActions(Scene, party, new PaintActions(Scene), ui.MyraUi);
         ScheduledTasks();
-        LoadContent();
-        var paintActions = new PaintActions(Scene);
-        _userActions = new UserActions(Scene, _party, paintActions, _ui.MyraUi);
-
     }
-
-
-
     private void StartingProgramSettings()
     {
-        FileLocations.SetToDefaultFileLocations();
+        Core.DefaultSamplerState = SamplerState.LinearClamp;
         DebugRenderEnabled = true;
         Window.AllowUserResizing = true;
+        FileLocations.SetToDefaultFileLocations();
     }
-    private static void SceneSetup(int width, int height, Texture2D mapTexture)
+    private static void SceneSetup(Texture2D mapTexture)
     {
         Scene = new Scene();
         var map = Scene.CreateEntity("Map");
@@ -71,39 +51,37 @@ public sealed class Game1 : Core
         Scene.Camera.SetPosition(Vector2.Zero);
         Scene.ClearColor = Color.Black;
         Scene.LetterboxColor = Color.Black;
-    }
-    protected override void LoadContent()
-    {
-        base.LoadContent();
-        _party = new Party(FileLocations.Party, 20);
-        _party.SetPosition(Vector2.Zero);
-
         Scene.Camera.MinimumZoom = 1f;
         Scene.Camera.MaximumZoom = 100f;
-        SceneCameraController.CameraFollow(Scene.Camera, _party);
-        Scene.AddEntity(_party);
+    }
+    private static void ScreenSetup(Texture2D mapTexture)
+    {
+        int useWidth=0, useHeight=0;
+        if (mapTexture.Width > Screen.MonitorWidth)
+            useWidth = Screen.MonitorWidth;
+        if (mapTexture.Height > Screen.MonitorHeight) 
+            useHeight = Screen.MonitorHeight;
+        else
+        {
+            useWidth = mapTexture.Width;
+            useHeight = mapTexture.Height;
+        }
+        Screen.SetSize(useWidth, useHeight);
     }
     protected override void Update(GameTime gametime)
     {
-      
         base.Update(gametime);
-        //***temp***
-        //var mode = MyraUI.PaintMode ? UserActions.Mode.Paint : UserActions.Mode.TravelToClicked;
-        //**temp****
+        //***temp***var mode = MyraUI.PaintMode ? UserActions.Mode.Paint : UserActions.Mode.TravelToClicked;
         _userActions.CheckForInput();
     }
- 
     protected override void Draw(GameTime gameTime)
     {
         base.Draw(gameTime);
         _desktop.Render();
-
     }
     private static void ScheduledTasks() { /* Schedule(1, true, date.GetTimeIndex());*/}
-
 }
-
-public static class ProjectSourcePath
+internal static class ProjectSourcePath
 {
     private const string MyRelativePath = nameof(ProjectSourcePath) + ".cs";
     private static string? _lazyValue;

@@ -4,6 +4,19 @@
 namespace Nez.Tweens
 {
 	/// <summary>
+	/// useful enum for any Transform related property tweens
+	/// </summary>
+	public enum TransformTargetType
+	{
+		Position,
+		LocalPosition,
+		Scale,
+		LocalScale,
+		RotationDegrees,
+		LocalRotationDegrees
+	}
+
+	/// <summary>
 	/// this is a special case since Transforms are by far the most tweened object. we encapsulate the Tween and the ITweenTarget
 	/// in a single, cacheable class
 	/// </summary>

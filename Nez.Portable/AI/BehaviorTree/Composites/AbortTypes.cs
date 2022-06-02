@@ -29,4 +29,13 @@ namespace Nez.AI.BehaviorTrees
 		/// </summary>
 		Both = Self | LowerPriority
 	}
+
+
+	public static class AbortTypesExt
+	{
+		public static bool Has(this AbortTypes self, AbortTypes check)
+		{
+			return (self & check) == check;
+		}
+	}
 }
