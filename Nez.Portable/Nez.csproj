@@ -1,9 +1,6 @@
 ﻿<Project>
 	<PropertyGroup>
 		<BaseIntermediateOutputPath>obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-		<TargetFramework>net6.0</TargetFramework>
-		<LangVersion>latestmajor</LangVersion>
-		<Nullable>disable</Nullable>
 	</PropertyGroup>
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
   
@@ -14,6 +11,7 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<RootNamespace>Nez</RootNamespace>
 		<AssemblyName>Nez</AssemblyName>
+		<TargetFramework>net471</TargetFramework>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<NoWarn>1591,1570,1572,1573</NoWarn>
@@ -34,10 +32,14 @@
 	</ItemGroup>
   
 	<ItemGroup>
-	  <None Include="..\.editorconfig" Link=".editorconfig" />
-	</ItemGroup>
-  
-	<ItemGroup>
+		<PackageReference Include="MonoGame.Extended" Version="3.8.0" />
+		<PackageReference Include="MonoGame.Extended.Animations" Version="3.7.0" />
+		<PackageReference Include="MonoGame.Extended.Collisions" Version="3.8.0" />
+		<PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.8.0" />
+		<PackageReference Include="MonoGame.Extended.Graphics" Version="3.8.0" />
+		<PackageReference Include="MonoGame.Extended.Input" Version="3.8.0" />
+		<PackageReference Include="MonoGame.Extended.Tiled" Version="3.8.0" />
+		<PackageReference Include="MonoGame.Extended.Tweening" Version="3.8.0" />
 		<PackageReference Include="System.Drawing.Common" Version="5.0.2" />
 		<PackageReference Include="MonoGame.Framework.Portable" Version="3.7.1.189" PrivateAssets="all" />
 	</ItemGroup>
