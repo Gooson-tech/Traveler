@@ -39,7 +39,7 @@ public class MyraUI
 	}
 
 	public  Climate SelectedClimate { get; } = Climate.Grassland;
-	public Mode SelectedMode { get; set; } = Mode.TravelToClicked;
+	public Mode SelectedMode { get; set; } = Mode.Travel;
 	public Color UseColor { get; set; }
 
 	public MyraUI(Desktop desktop) {
@@ -83,7 +83,7 @@ public class MyraUI
 		};
 		var presentedColorSquare = new ImageButton
 		{
-			Tag = Mode.Paint,
+			Tag = Mode.Edit,
 			Visible = false,
 			Left = -19,
 			Top = 0,
@@ -103,7 +103,7 @@ public class MyraUI
 
 		var textbox = new MyTextBox
 		{
-			Tag = Mode.Paint,
+			Tag = Mode.Edit,
 			Left = 0,
 			Top = 0,
 			MinWidth = 100,
@@ -123,13 +123,13 @@ public class MyraUI
 				BiomeName = textbox.Text.ToLower();
 		};
 
-		var painterModeButton = new TextButton { Text = "World Paint", Toggleable = false, };
+		var painterModeButton = new TextButton { Text = "World Edit", Toggleable = false, };
 		painterModeButton.TouchDown += (s, a) =>
 		{
 			//toggles other buttons if on
 			if (!painterModeButton.IsPressed)
 			{
-				SelectedModeSet(Mode.Paint);
+				SelectedModeSet(Mode.Edit);
 			}
 		};	
 		var travelButton = new TextButton { Text = "Travel", Toggleable = false, };
@@ -138,7 +138,7 @@ public class MyraUI
 			//toggles other buttons if on
 			if (!travelButton.IsPressed)
 			{
-				SelectedModeSet(Mode.TravelToClicked);
+				SelectedModeSet(Mode.Travel);
 			}
 
 		};
@@ -175,7 +175,7 @@ public class MyraUI
 
 		void SelectedModeSet(Mode mode)
 		{
-			if (mode == Mode.TravelToClicked)
+			if (mode == Mode.Travel)
 			{
 				window1.Visible=true;
 				presentedColorSquare.Visible = false;
@@ -194,8 +194,8 @@ public class MyraUI
 	public enum Mode
 	{
 		None,
-		Paint,
-		TravelToClicked
+		Edit,
+		Travel
 	}
 }
 
@@ -252,7 +252,7 @@ public sealed class Window1 : Window
 		if (image1.Renderable.Size.Y > 1000)
 			yDivide = 4;
 
-		Tag = MyraUI.Mode.TravelToClicked;
+		Tag = MyraUI.Mode.Travel;
 		Title = "Biomes";
 		Left = 0; this.Top = 0;
 		IsModal = false;

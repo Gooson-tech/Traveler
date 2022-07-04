@@ -1,0 +1,5 @@
+#	Name,				 TotalXp,   ImageLink   
+4	Awakened Tree,		 1800,		  {}
+2	Awakened Shrub,		 20,		  {}
+1	Warhorse skeleton,	 100,		  {}
+1	Wraith,				 1800,		  {} 

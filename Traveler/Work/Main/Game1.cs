@@ -9,11 +9,21 @@ using Myra;
 namespace Traveler;
 public sealed class Game1 : Core
 {
+
     private UserActions _userActions;
     private readonly Desktop _desktop = new();
     public Game1() => Content.RootDirectory= string.Format(ProjectSourcePath.Value)+@"\Content\";
     protected override void Initialize()
     {
+        //TODO -AlwaysSeed needs to be serialized and loaded on launch. Nez RandomSeed will be set to whatever worldTime is.
+        //This is so whatever the date and time is it will always be deterministic, allowing rewinding 
+        int WorldDateAndTime = 0; //replace later
+        int ALWAYSSEED= (Random.Range(1, 100000));
+        //--CurrentSeed = Nez.Random.SetSeed(ALWAYSSEED+WorldDateAndTime);
+        /////////
+
+        QML PaintScreen = new QML("Start.qml", false);
+
         StartingProgramSettings();
         base.Initialize();
         
@@ -24,9 +34,8 @@ public sealed class Game1 : Core
         //Create Players Party
         var party = new Party(FileLocations.Party, 20);
         party.SetPosition(Vector2.Zero);
-        SceneCameraController.CameraFollow(Scene.Camera, party);
         Scene.AddEntity(party);
-
+    
         MyraEnvironment.Game = Core.Instance;
         var ui = new UI(_desktop);
 
@@ -40,6 +49,8 @@ public sealed class Game1 : Core
         Window.AllowUserResizing = true;
         FileLocations.SetToDefaultFileLocations();
     }
+    private const float MAXZOOM = 100f;
+    private const float MINZOOM = .1f;
     private static void SceneSetup(Texture2D mapTexture)
     {
         Scene = new Scene();
@@ -48,11 +59,14 @@ public sealed class Game1 : Core
         mapRender.RenderLayer = 1;
         Scene.SetDesignResolution(mapTexture.Width, mapTexture.Height,
             Scene.SceneResolutionPolicy.ShowAllPixelPerfect);
-        Scene.Camera.SetPosition(Vector2.Zero);
         Scene.ClearColor = Color.Black;
         Scene.LetterboxColor = Color.Black;
-        Scene.Camera.MinimumZoom = 1f;
-        Scene.Camera.MaximumZoom = 100f;
+
+
+        Scene.Camera.SetPosition(Vector2.Zero);
+        Scene.Camera.SetMinimumZoom(MINZOOM);
+        Scene.Camera.SetMaximumZoom(MAXZOOM);
+
     }
     private static void ScreenSetup(Texture2D mapTexture)
     {
@@ -71,7 +85,7 @@ public sealed class Game1 : Core
     protected override void Update(GameTime gametime)
     {
         base.Update(gametime);
-        //***temp***var mode = MyraUI.PaintMode ? UserActions.Mode.Paint : UserActions.Mode.TravelToClicked;
+        //***temp***var mode = MyraUI.PaintMode ? UserActions.Mode.Edit : UserActions.Mode.Travel;
         _userActions.CheckForInput();
     }
     protected override void Draw(GameTime gameTime)

@@ -12,13 +12,13 @@ public abstract class Alive : Entity, ITimeStoppable
     protected readonly string _spriteLocation;
     protected SpriteAnimator _animator;
     protected readonly Queue<Vector2> _moveLocations = new();
-    protected bool _move;
+    protected bool _moving;
 
     public Biome InsideBiome => this.GetComponent<MyWorldPosition>().InsideBiome;
     public float Speed { get; set; }
     protected void ResetMovement()
     {
-        _move = false;
+        _moving = false;
         _moveLocations.Clear();
         _animator.Stop();
     }
@@ -56,7 +56,7 @@ public abstract class Alive : Entity, ITimeStoppable
     public override void Update()
     {
         base.Update();
-        if (!_move) return;
+        if (!_moving) return;
         if (_moveLocations.Count == 0)
         {
             _moveLocations.Clear();
@@ -80,21 +80,32 @@ public abstract class Alive : Entity, ITimeStoppable
     }
     private Vector2 _lastPosVector = new(0, 0);
     bool OptimizedDistance() => _moveLocations.Count <= 0 || Vector2.Distance(_moveLocations.Last(), _lastPosVector) > 5f;
-    public void MoveTo(Vector2 pos, bool moveCondition = true, bool moveConditionReleased = false, 
+    public void MoveTo(
+        Vector2 pos,
+        bool moveCondition = true,
+        bool moveConditionReleased = false, 
         bool stopCondtion = false)
     {
         if (stopCondtion) 
             ResetMovement();
+
         else if (moveCondition)
         {
-            if (_move) 
-                ResetMovement();
-            else if (OptimizedDistance()) 
-                _moveLocations.Enqueue(pos); 
+            switch (_moving)
+            {
+                case false:
+                    if (OptimizedDistance())
+                        _moveLocations.Enqueue(pos);
+                    break;
+
+                case true:
+                    ResetMovement();
+                    break;
+            }
             _lastPosVector = pos;
         }
         else if (moveConditionReleased)
-            _move = true;
+            _moving = true;
     }
     public void Pause() => this.SetEnabled(false);
     public void Continue() => this.SetEnabled(true);

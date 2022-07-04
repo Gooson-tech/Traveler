@@ -1,7 +1,7 @@
 ﻿namespace Traveler;
 
 /*
-public class Paint : Entity
+public class Edit : Entity
 {
     //private static List<Vector2> PatchLocations=new List<Vector2>();
     private static string LastPaintedID;
@@ -9,7 +9,7 @@ public class Paint : Entity
     private static Texture2D texture2d;
     private static Sprite sprite;
     private static bool Initialized;
-    private static List<Paint> Splotches;
+    private static List<Edit> Splotches;
     private static SpriteRenderer spriteRender;
     private static Color _color;
     private static Color _lastColor;
@@ -38,7 +38,7 @@ public class Paint : Entity
     public override void OnAddedToScene()
     {
         base.OnAddedToScene();
-        Splotches = Core.Scene.EntitiesOfType<Paint>();
+        Splotches = Core.Scene.EntitiesOfType<Edit>();
 
 
 
@@ -74,7 +74,7 @@ public class Paint : Entity
     }
 
 
-    public Paint(string biomeName)
+    public Edit(string biomeName)
     {
 
         ID = biomeName;

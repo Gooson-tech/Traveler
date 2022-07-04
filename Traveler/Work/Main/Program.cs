@@ -24,6 +24,7 @@ namespace Traveler
     {
         private static void RunGame()
         {
+
             var game = new Game1();
             game.Run();
 

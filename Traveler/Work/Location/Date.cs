@@ -7,15 +7,12 @@ using System.Linq;
 namespace Traveler;
 public static class Date
 {
-    public static int TimeIndex(IReadOnlyList<string> climateData, uint year, uint month, uint day, double hour)
+    public static int TimeIndex(IReadOnlyList<string> climateData, int year, int month, int day, double hour)
     {
         var startDate = StartDate(climateData);
-        var currentDate = new DateTime(
-            (int)(year + startDate.Year - 1),
-            (int)month + startDate.Month - 1, 
-            (int)day + startDate.Month - 1);
-
+        var currentDate = new DateTime((int)(year + startDate.Year), month + startDate.Month, (int)day + startDate.Month);
         currentDate = currentDate.AddHours(hour);
+        
         return (int)(currentDate - startDate).TotalHours;
     }
     private static DateTime StartDate(IReadOnlyList<string> data)

@@ -11,7 +11,13 @@ public static class FileLocations
     private static readonly string SpriteFiles= AssetFiles + @"Sprites\";
     private static readonly string MapFiles= AssetFiles + @"Maps\";
     private static readonly string Images= AssetFiles + @"Images\";
-    public static readonly string QML = Root + @"Work\QML\";
+    public static readonly string QML = Root + @"Work\QML\";  
+    public static readonly string Biomes = Root + @"\Biomes\";
+    public static readonly string Animals = Biomes + @"Animals\";
+    public static readonly string Events = Biomes + @"Events\";
+    public static readonly string Structures = Biomes + @"Structures\";
+    public static readonly string Enemies = Biomes + @"Enemies\";
+
 
     public static string LocationImages { get; set; }
     public static string Map { get; private set; }

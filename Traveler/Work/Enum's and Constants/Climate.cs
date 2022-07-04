@@ -8,4 +8,6 @@ public enum Climate
     Temperate,
     Deciduous,
     RainForest,
+    Savanna,
+    Polar
 }

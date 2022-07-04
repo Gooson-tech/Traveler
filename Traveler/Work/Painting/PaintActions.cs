@@ -97,7 +97,7 @@ public PaintActions(Color color, int size)
     _size = size;
 }*/
 
-/*public void Paint(Vector2 mouseToWorldPoint, bool leftMouseButtonDown)
+/*public void Edit(Vector2 mouseToWorldPoint, bool leftMouseButtonDown)
  {
 if (leftMouseButtonDown)
 {
@@ -107,7 +107,7 @@ if (leftMouseButtonDown)
  }
 }*/
 
-/*public void Paint(Scene scene, Color color, int size,
+/*public void Edit(Scene scene, Color color, int size,
     Vector2 mouseToWorldPoint, bool leftMouseButtonDown)
 {
     if (leftMouseButtonDown)

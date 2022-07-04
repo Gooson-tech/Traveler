@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<PublishReadyToRun>false</PublishReadyToRun>
-		<TieredCompilation>false</TieredCompilation>
+		<TieredCompilation>true</TieredCompilation>
 		<RootNamespace>Traveler</RootNamespace>
 		<LangVersion>latestmajor</LangVersion>
 		<Nullable>disable</Nullable>
@@ -29,6 +29,8 @@
 		<TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
 	</ItemGroup>
 	<ItemGroup>
+		
+		<PackageReference Include="Humanizer" Version="2.14.1" />
 		
 		<PackageReference Include="Qml.Net" Version="0.11.0" />
 	<PackageReference Include="Qml.Net.LinuxBinaries" Version="0.11.0" />

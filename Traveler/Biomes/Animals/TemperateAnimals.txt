@@ -1,0 +1,35 @@
+#In a normal RollTable You would have to do duplicates for more a roll to be more likely. 
+#Using "*Num" will make each be copied that many times
+
+#{
+#
+#}
+
+# 10 duplicate hawks woodpeckers, frogs etc. during day, 5 during night. 
+*10, *5
+{
+hawk, woodpecker					   
+frog, salamander
+deer
+squirrel, rabbit, chipmunk  
+porcupine				 
+badger			  
+}
+
+*5
+{ 
+wild boars
+slug
+turtle
+}
+
+# mostly night creatures
+#				Day				      Night
+bat,			*0,					   *13
+spider,			*10,				   *10
+racoon,			*5,					   *10
+fox,		    *5,		  			   *10 
+coyote,			*2,					   *10
+timber wolf,	*2,					   *7
+black bear,		*10,			 	   *8
+skunk,			*5,					   *12

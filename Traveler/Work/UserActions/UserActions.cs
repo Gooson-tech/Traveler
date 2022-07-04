@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using Myra.Graphics2D.UI;
 using Nez;
 using Nez.Tweens;
+using Qml.Net;
 using static Traveler.MyraUI.Mode;
-using static Traveler.SceneCameraController;
 using static Microsoft.Xna.Framework.Input.Keys;
 using static Nez.Input;
 
@@ -14,8 +18,7 @@ public class UserActions
     private readonly Party _party;
     private readonly Scene _scene;
     private readonly MyraUI _myraUI;
-    private Camera _sceneCamera;
-
+    private readonly Camera _sceneCamera;
     public UserActions(Scene scene, Party party, PaintActions paintActions, MyraUI myraUI)
     {
         _party = party;
@@ -23,82 +26,90 @@ public class UserActions
         _scene = scene;
         _myraUI = myraUI;
         _sceneCamera = scene.Camera;
-    }
 
-    private Vector2 _last=Vector2.Zero;
+    }
     public void CheckForInput()
     {
-        CameraZoom(_sceneCamera, MouseWheel);
-        if (MiddleMouseButtonPressed)
+        CameraControls();
+        switch (_myraUI.SelectedMode)
         {
-            CameraFollow(_sceneCamera, _party, false);
+            case MyraUI.Mode.None: break;
+            case MyraUI.Mode.Menu: break;
+            case Edit:
+                
+                PaintInstruction(_scene, _paintActions, _myraUI);
+                break;
+            case Travel:
+                if (!MyraUI.IsClicked)
+                {
+                    TravelInstruction(_scene, _party, _myraUI);
+                }
+                break;
+            case MyraUI.Mode.Info: break;
+            case MyraUI.Mode.Notes: break;
+            case MyraUI.Mode.Fight: break;
+            default: break;
         }
+    }
+    private void CameraControls()
+    {
+        //zoom controls 
+        _sceneCamera.CameraZoom(MouseWheel);
+
+        //unset CameraFollow
+        if (MiddleMouseButtonPressed)  
+            _sceneCamera.CameraFollow(_party, false);
+        //done with panning
         if (MiddleMouseButtonReleased)
-        {
+        { 
+            //move camera back to party
             _sceneCamera.Entity.TweenPositionTo(_party.Position, 2f)
                 .SetEaseType(EaseType.ElasticInOut)
                 .Start();
-            CameraFollow(_sceneCamera, _party, true);
+
+            //reset to following the party
+            _sceneCamera.CameraFollow(_party, true);
         }
         else if (MiddleMouseButtonDown)
-        {
-            //posTween.SetTweenedValue(_sceneCamera.MouseToWorldPoint());
-            //posTween.SetTargetAndType();
-
-           
-            //_sceneCamera.SetPosition();
-            //_sceneCamera.MouseToWorldPoint();
-            //.TweenPositionTo(_pos, .1f)
-            //  .SetEaseType(EaseType.ElasticOut)
-            //  .Start();
-            if (Vector2.Distance(_last, ScaledMousePosition) > 100f)
-            {
-                _sceneCamera.SetPosition(_sceneCamera.MouseToWorldPoint());
-            }
-        }
-        switch (_myraUI.SelectedMode)
-        {
-            case Paint:
-                PaintInstruction(_scene, _paintActions, _myraUI);
-                break;
-            case TravelToClicked: 
-                TravelInstruction(_scene, _party, _myraUI);
-                break;
-            case MyraUI.Mode.None:
-                break;
-            default: throw new ArgumentOutOfRangeException();
-        }
+            _sceneCamera.SetPosition(Input.MousePositionDelta.ToVector2() + _sceneCamera.Position);
     }
+
+    private static bool firstTime = true; 
     private static void PaintInstruction(Scene scene, PaintActions paintActions, MyraUI myraUI)
     {
-        if (MyraUI.MouseIsOver || myraUI.BiomeName != "")
+        if (firstTime)
+        {
+            firstTime = false;
             return;
+        }
 
-        var biome = Biome.Cached.ContainsKey(myraUI.BiomeName)
-            ? Biome.Cached[myraUI.BiomeName]
-            : new Biome(myraUI.BiomeName, myraUI.SelectedClimate);
+        if (Input.IsKeyPressed(Keys.A))
+            QmlEngineControls.Engine.RaiseSignal("hideSignal");
+        else if (Input.IsKeyPressed(Keys.S))
+            QmlEngineControls.Engine.RaiseSignal("showSignal");
 
-        paintActions.PaintBiome(
-            scene,
-            biome,
-            (Color)myraUI.UseColor!,
-            myraUI.SplotchSize,
-            scene.Camera.MouseToWorldPoint(),
-            LeftMouseButtonDown
-        );
-        paintActions.Erase(scene.Camera.MouseToWorldPoint(), RightMouseButtonDown);
+
+        //var biome = Biome.Cached[UIINTERCHANGE.CurrentBiome.Name];
+        //  
+        //
+        //paintActions.PaintBiome(
+        //    scene,
+        //    biome,
+        //    (Color)myraUI.UseColor!,
+        //    myraUI.SplotchSize,
+        //    scene.Camera.MouseToWorldPoint(),
+        //    LeftMouseButtonDown
+        //);
+        //paintActions.Erase(scene.Camera.MouseToWorldPoint(), RightMouseButtonDown);
     }
     private static void TravelInstruction(Scene scene, Party party, MyraUI myraUI)
     {
-        var mousePosition = scene.Camera.MouseToWorldPoint();
-        
         party.MoveTo(
-            pos: mousePosition,
+            pos: scene.Camera.MouseToWorldPoint(),
             moveCondition: LeftMouseButtonDown,
             moveConditionReleased: LeftMouseButtonReleased,
             stopCondtion: IsKeyPressed(Space)
-        ); 
-
+        );
         if (party.InsideBiome == null)
             return;
         var climateDataIndex = Date.TimeIndex(party.InsideBiome.Climate, myraUI.Year!, myraUI.Month!, myraUI.Day!, myraUI.Hour!);

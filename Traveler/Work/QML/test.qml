@@ -5,7 +5,7 @@ import QtQuick.Shapes 1.2
 import test 1.1
 
 Item {
-    id: testt
+	id: testt
 
  Button{
 		anchors.fill: parent
